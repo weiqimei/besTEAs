@@ -8,6 +8,7 @@ import ProtectedRoute from './components/auth/ProtectedRoute';
 import UsersList from './components/UsersList';
 import User from './components/User';
 import BobaShopList from './components/BobaShopList';
+import BobaShop from './components/BobaShop';
 import { authenticate } from './store/session';
 
 function App() {
@@ -40,6 +41,9 @@ function App() {
         </ProtectedRoute>
         <ProtectedRoute path='/bobaShops' exact={true} >
           <BobaShopList />
+        </ProtectedRoute>
+        <ProtectedRoute path='/bobaShops/:bobaShopId' exact={true} >
+          <BobaShop />
         </ProtectedRoute>
         <ProtectedRoute path='/users/:userId' exact={true} >
           <User />
