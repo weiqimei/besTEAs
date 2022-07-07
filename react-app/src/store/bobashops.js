@@ -12,6 +12,7 @@ export const getAllBobaShops = () => async (dispatch) => {
 
   if (response.ok) {
     const bobaShops = await response.json();
+    console.log(bobaShops, "THIS IS BOBASHOPS");
     dispatch(getBobaShops(bobaShops));
   }
 }
