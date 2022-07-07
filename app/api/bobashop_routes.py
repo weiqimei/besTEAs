@@ -8,5 +8,6 @@ bobashop_routes = Blueprint('bobaShops', __name__)
 @bobashop_routes.route('/')
 @login_required
 def bobashop():
-    bobashop = BobaShop.query.all()
+    bobaShops = BobaShop.query.all()
+    print(bobaShops, "this is bobashop")
     return {'bobaShops': [bobashop.to_dict() for bobashop in bobaShops]}
