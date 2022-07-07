@@ -1,0 +1,9 @@
+.navbar {
+  background-color: beige;
+  display: flex;
+  justify-content: center;
+}
+
+.each-nav-element {
+  margin: 10px;
+}
