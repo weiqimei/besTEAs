@@ -50,7 +50,7 @@ const CreateBobaShopForm = () => {
     };
     let bobaShop = await dispatch(createBobaShop(newBobaShop));
     if (bobaShop) {
-      history.push(`/bobaShops/${bobaShop.id}`);
+      history.push(`/bobaShops`);
     }
   }
 
