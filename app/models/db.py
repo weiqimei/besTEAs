@@ -10,12 +10,12 @@ class BobaShop(db.Model):
     user_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False)
     name = db.Column(db.String(25), nullable=False)
     image = db.Column(db.Text)
-    address = db.Column(db.String(25), nullable=False)
+    address = db.Column(db.String(100), nullable=False)
     city = db.Column(db.String(25), nullable=False)
     state = db.Column(db.String(25), nullable=False)
-    zipcode = db.Column(db.String(5), nullable=False)
+    zipcode = db.Column(db.String(25), nullable=False)
     phone = db.Column(db.String(25), nullable=False)
-    hours = db.Column(db.String(25), nullable=False)
+    hours = db.Column(db.String(50), nullable=False)
 
     # RELATIONSHIPS GO HERE
     # many to one relationship --> boba shops belongs to user
