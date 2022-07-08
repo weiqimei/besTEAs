@@ -29,7 +29,7 @@ const NavBar = () => {
           </NavLink>
         </div>
         <div className='each-nav-element'>
-          <NavLink to='/bobashops' exact={true} activeClassName='active'>
+          <NavLink to='/bobaShops' exact={true} activeClassName='active'>
             Boba Shops
           </NavLink>
         </div>

@@ -64,4 +64,5 @@ def bobashop():
 @login_required
 def bobashop_id(id):
     bobaShop = BobaShop.query.get(id)
+    # print(bobaShop.id, "this is bobashop id----------")
     return bobaShop.to_dict()

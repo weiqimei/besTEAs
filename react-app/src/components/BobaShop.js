@@ -1,10 +1,21 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { getBobaShop } from '../store/bobashops';
 import './BobaShop.css';
 
 function BobaShop() {
   const [bobaShop, setBobaShop] = useState({});
   const { bobaShopId } = useParams();
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getBobaShop(bobaShopId));
+  }, [dispatch, bobaShopId]);
+
+  const bobaShopState = useSelector(state => state.bobaShop);
+
+  console.log(bobaShopId, 'THIS IS BOBA SHOP ID -------------------');
 
   useEffect(() => {
     if (!bobaShopId) {
@@ -41,14 +52,18 @@ function BobaShop() {
       <li>
         <strong>Hours</strong> {bobaShop.hours}
       </li>
+      {(bobaShop?.image) &&
+      <div>
       <li>
-        <strong>Image</strong> {bobaShop.image}
+        <strong>Image</strong>
       </li>
-      <li>
-        <div className='boba-image' style={{backgroundImage: `url(${bobaShop.image})`}}>
-        {/* {bobaShop.image} */}
+        <li>
+        <div className='boba-image' style={{ backgroundImage: `url(${bobaShop.image})` }}>
+          {/* {bobaShop.image} */}
         </div>
       </li>
+      </div>
+      }
     </ul>
   );
 }

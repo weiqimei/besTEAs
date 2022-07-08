@@ -49,7 +49,7 @@ function App() {
         <ProtectedRoute path='/bobaShops/:bobaShopId' exact={true} >
           <BobaShop />
         </ProtectedRoute>
-        <ProtectedRoute path='/users/:userId' exact={true} >
+        <ProtectedRoute path='/users/:user_id' exact={true} >
           <User />
         </ProtectedRoute>
         <ProtectedRoute path='/' exact={true} >

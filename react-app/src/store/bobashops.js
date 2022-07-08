@@ -1,6 +1,6 @@
-const GET_BOBASHOPS = 'bobashops/GET_BOBASHOPS'
-const GET_ONE = 'bobashops/GET_ONE'
-const ADD_ONE = 'bobashops/ADD_ONE'
+const GET_BOBASHOPS = 'bobaShops/GET_BOBASHOPS'
+const GET_ONE = 'bobaShops/GET_ONE'
+const ADD_ONE = 'bobaShops/ADD_ONE'
 
 
 const getBobaShops = (bobaShops) => ({
@@ -23,7 +23,7 @@ const addOneBobaShop = (bobaShop) => {
 }
 
 export const getAllBobaShops = () => async (dispatch) => {
-  const response = await fetch('/api/bobaShops/');
+  const response = await fetch('/api/bobaShops');
 
   if (response.ok) {
     const bobaShops = await response.json();
@@ -32,8 +32,8 @@ export const getAllBobaShops = () => async (dispatch) => {
   }
 }
 
-export const getBobaShop = (id) => async (dispatch) => {
-  const response = await fetch(`/api/bobaShops/${id}`);
+export const getBobaShop = (bobaShopId) => async (dispatch) => {
+  const response = await fetch(`/api/bobaShops/${bobaShopId}`);
 
   if (response.ok) {
     const bobaShop = await response.json();
