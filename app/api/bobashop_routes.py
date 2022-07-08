@@ -2,6 +2,7 @@ from flask import Blueprint, jsonify, request
 from flask_login import login_required
 from app.models import BobaShop
 from app.forms import BobaShopForm
+from .auth_routes import validation_errors_to_error_messages
 
 bobashop_routes = Blueprint('bobaShops', __name__)
 
@@ -17,31 +18,32 @@ def create_bobaShop():
     form['csrf_token'].data = request.cookies['csrf_token']
     print('FORMMMMMMMM---------------')
     if form.validate_on_submit():
-        bobaShop = BobaShop(
-            name=form.name.data,
-            address=form.address.data,
-            city=form.city.data,
-            state=form.state.data,
-            zipcode=form.zipcode.data,
-            phone=form.phone.data,
-            hours=form.hours.data,
-            # image=form.image.data,
-        )
-        print('HELLO---------------------------------------')
-        # data = form.data
         # bobaShop = BobaShop(
-        #     name=data['name'],
-        #     address=data['address'],
-        #     city=data['city'],
-        #     state=data['state'],
-        #     zipcode=data['zipcode'],
-        #     phone=data['phone'],
-        #     hours=data['hours'],
-        #     # image=data['image']
+        #     name=form.name.data,
+        #     address=form.address.data,
+        #     city=form.city.data,
+        #     state=form.state.data,
+        #     zipcode=form.zipcode.data,
+        #     phone=form.phone.data,
+        #     hours=form.hours.data,
+        #     # image=form.image.data,
         # )
+        print('HELLO---------------------------------------')
+        data = form.data
+        bobaShop = BobaShop(
+            name=data['name'],
+            address=data['address'],
+            city=data['city'],
+            state=data['state'],
+            zipcode=data['zipcode'],
+            phone=data['phone'],
+            hours=data['hours'],
+            # image=data['image']
+        )
         db.session.add(bobaShop)
         db.session.commit()
         return bobaShop.to_dict()
+    return {"errors": validation_errors_to_error_messages(form.errors)}, 401
 
 
 # ——————————————————————————————————————————————————————————————————————————————————
