@@ -41,7 +41,7 @@ def create_bobaShop():
             zipcode=data['zipcode'],
             phone=data['phone'],
             hours=data['hours'],
-            # image=data['image']
+            image=data['image']
         )
         db.session.add(bobaShop)
         db.session.commit()

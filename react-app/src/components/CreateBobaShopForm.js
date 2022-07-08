@@ -17,7 +17,7 @@ const CreateBobaShopForm = () => {
   const [zipcode, setZipcode] = useState('');
   const [phone, setPhone] = useState('');
   const [hours, setHours] = useState('');
-  // image
+  const [image, setImage] = useState('');
 
   const updateName = (e) => setName(e.target.value);
   const updateAddress = (e) => setAddress(e.target.value);
@@ -26,10 +26,10 @@ const CreateBobaShopForm = () => {
   const updateZipcode = (e) => setZipcode(e.target.value);
   const updatePhone = (e) => setPhone(e.target.value);
   const updateHours = (e) => setHours(e.target.value);
-  // const updateImage = (e) => setImage(e.target.value);
+  const updateImage = (e) => setImage(e.target.value);
 
   // errors handling
-  useEffect(() => { }, [name, address, city, state, zipcode, phone, hours]);
+  useEffect(() => { }, [name, address, city, state, zipcode, phone, hours, image]);
 
   useEffect(() => {
     dispatch(getAllBobaShops());
@@ -46,8 +46,8 @@ const CreateBobaShopForm = () => {
       zipcode,
       phone,
       hours,
-      user_id
-      // image
+      user_id,
+      image
     };
     let bobaShop = await dispatch(createBobaShop(newBobaShop));
     if (bobaShop) {
@@ -111,6 +111,14 @@ const CreateBobaShopForm = () => {
           placeholder="Hours"
           value={hours}
           onChange={updateHours}
+        />
+      </div>
+      <div>
+        <input
+          type="text"
+          placeholder="Image"
+          value={image}
+          onChange={updateImage}
         />
       </div>
       <div>

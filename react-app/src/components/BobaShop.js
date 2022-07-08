@@ -42,6 +42,9 @@ function BobaShop() {
         <strong>Hours</strong> {bobaShop.hours}
       </li>
       <li>
+        <strong>Image</strong> {bobaShop.image}
+      </li>
+      <li>
         <div className='boba-image' style={{backgroundImage: `url(${bobaShop.image})`}}>
         {/* {bobaShop.image} */}
         </div>

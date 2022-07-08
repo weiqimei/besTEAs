@@ -9,7 +9,7 @@ class BobaShop(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False)
     name = db.Column(db.String(25), nullable=False)
-    image = db.Column(db.Text, nullable=False)
+    image = db.Column(db.Text)
     address = db.Column(db.String(25), nullable=False)
     city = db.Column(db.String(25), nullable=False)
     state = db.Column(db.String(25), nullable=False)

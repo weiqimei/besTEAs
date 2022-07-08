@@ -10,4 +10,4 @@ class BobaShopForm(FlaskForm):
   zipcode = IntegerField('zipcode')
   phone = StringField('phone')
   hours = StringField('hours')
-  # image = StringField('image')
+  image = StringField('image')
