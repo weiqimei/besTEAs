@@ -33,7 +33,7 @@ def upgrade():
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('user_id', sa.Integer(), nullable=False),
     sa.Column('name', sa.String(length=25), nullable=False),
-    sa.Column('image', sa.Text(), nullable=False),
+    sa.Column('image', sa.Text()),
     sa.Column('address', sa.String(length=25), nullable=False),
     sa.Column('city', sa.String(length=25), nullable=False),
     sa.Column('state', sa.String(length=25), nullable=False),
