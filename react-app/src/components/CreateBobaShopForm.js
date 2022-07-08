@@ -4,8 +4,9 @@ import { useHistory } from "react-router-dom";
 import { getAllBobaShops, createBobaShop } from "../store/bobashops";
 
 const CreateBobaShopForm = () => {
-  const userId = useSelector(state => state.session.userId);
-  // console.log(userId, "THIS IS USERID");
+  const user = useSelector(state => state.session.user);
+  const user_id = user.id;
+  // console.log(user_id, "THIS IS USER ID---------");
 
   const dispatch = useDispatch();
   const history = useHistory();
@@ -45,7 +46,7 @@ const CreateBobaShopForm = () => {
       zipcode,
       phone,
       hours,
-      userId,
+      user_id
       // image
     };
     let bobaShop = await dispatch(createBobaShop(newBobaShop));
@@ -62,6 +63,54 @@ const CreateBobaShopForm = () => {
           placeholder="Name"
           value={name}
           onChange={updateName}
+        />
+      </div>
+      <div>
+        <input
+          type="text"
+          placeholder="Address"
+          value={address}
+          onChange={updateAddress}
+        />
+      </div>
+      <div>
+        <input
+          type="text"
+          placeholder="City"
+          value={city}
+          onChange={updateCity}
+        />
+      </div>
+      <div>
+        <input
+          type="text"
+          placeholder="State"
+          value={state}
+          onChange={updateState}
+        />
+      </div>
+      <div>
+        <input
+          type="text"
+          placeholder="Zipcode"
+          value={zipcode}
+          onChange={updateZipcode}
+        />
+      </div>
+      <div>
+        <input
+          type="text"
+          placeholder="Phone"
+          value={phone}
+          onChange={updatePhone}
+        />
+      </div>
+      <div>
+        <input
+          type="text"
+          placeholder="Hours"
+          value={hours}
+          onChange={updateHours}
         />
       </div>
       <div>

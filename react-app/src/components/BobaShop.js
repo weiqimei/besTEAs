@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import './BobaShop.css';
 
 function BobaShop() {
   const [bobaShop, setBobaShop] = useState({});
@@ -13,12 +14,15 @@ function BobaShop() {
       const response = await fetch(`/api/bobaShops/${bobaShopId}`);
       const bobaShop = await response.json();
       setBobaShop(bobaShop);
+      console.log(bobaShop, "---------THIS IS BOBASHOP");
     })();
   }, [bobaShopId]);
 
   if (!bobaShop) {
     return null;
   }
+
+  // console.log(bobaShop.image)
 
   return (
     <ul>
@@ -38,7 +42,9 @@ function BobaShop() {
         <strong>Hours</strong> {bobaShop.hours}
       </li>
       <li>
-        {bobaShop.image}
+        <div className='boba-image' style={{backgroundImage: `url(${bobaShop.image})`}}>
+        {/* {bobaShop.image} */}
+        </div>
       </li>
     </ul>
   );

@@ -1,6 +1,6 @@
 from flask import Blueprint, jsonify, request
 from flask_login import login_required
-from app.models import BobaShop
+from app.models import db, BobaShop
 from app.forms import BobaShopForm
 from .auth_routes import validation_errors_to_error_messages
 
@@ -17,6 +17,8 @@ def create_bobaShop():
     form = BobaShopForm()
     form['csrf_token'].data = request.cookies['csrf_token']
     print('FORMMMMMMMM---------------')
+    print(request.json, "THIS IS THE REQUEST JSON")
+    print(form.data, "THIS IS THE USER ID")
     if form.validate_on_submit():
         # bobaShop = BobaShop(
         #     name=form.name.data,
@@ -31,6 +33,7 @@ def create_bobaShop():
         print('HELLO---------------------------------------')
         data = form.data
         bobaShop = BobaShop(
+            user_id=data['user_id'],
             name=data['name'],
             address=data['address'],
             city=data['city'],

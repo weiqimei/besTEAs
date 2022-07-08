@@ -42,6 +42,8 @@ export const getBobaShop = (id) => async (dispatch) => {
 }
 
 export const createBobaShop = (bobaShop) => async (dispatch) => {
+  console.log(bobaShop, "THIS IS BOBASHOP---");
+
   const response = await fetch('/api/bobaShops', {
     method: 'POST',
     headers: {
@@ -49,10 +51,10 @@ export const createBobaShop = (bobaShop) => async (dispatch) => {
     },
     body: JSON.stringify(bobaShop)
   });
-    const newBobaShop = await response.json();
-    console.log(newBobaShop, "THIS IS NEWBOBASHOP------------");
-    dispatch(addOneBobaShop(newBobaShop));
-    return newBobaShop;
+  const newBobaShop = await response.json();
+  console.log(newBobaShop, "THIS IS NEWBOBASHOP------------");
+  dispatch(addOneBobaShop(newBobaShop));
+  return newBobaShop;
 }
 
 
@@ -75,6 +77,11 @@ export default function bobaShopReducer(state = initialState, action) {
       const newBobaShop = {};
       newBobaShop[action.payload.id] = action.payload;
       return { ...newBobaShop }
+      // const newState = {
+      //   ...state,
+      //   [action.business.id]: action.business,
+      // };
+      // return newState;
     default:
       return state
   }
