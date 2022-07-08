@@ -33,13 +33,13 @@ def upgrade():
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('user_id', sa.Integer(), nullable=False),
     sa.Column('name', sa.String(length=25), nullable=False),
-    sa.Column('image', sa.Text(), nullable=False),
-    sa.Column('address', sa.String(length=25), nullable=False),
+    sa.Column('image', sa.Text()),
+    sa.Column('address', sa.String(length=100), nullable=False),
     sa.Column('city', sa.String(length=25), nullable=False),
     sa.Column('state', sa.String(length=25), nullable=False),
-    sa.Column('zipcode', sa.String(length=5), nullable=False),
+    sa.Column('zipcode', sa.String(length=25), nullable=False),
     sa.Column('phone', sa.String(length=25), nullable=False),
-    sa.Column('hours', sa.String(length=25), nullable=False),
+    sa.Column('hours', sa.String(length=50), nullable=False),
     sa.ForeignKeyConstraint(['user_id'], ['users.id'], ),
     sa.PrimaryKeyConstraint('id')
     )

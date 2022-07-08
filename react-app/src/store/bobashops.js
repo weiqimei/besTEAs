@@ -1,5 +1,6 @@
-const GET_BOBASHOPS = 'bobashops/GET_BOBASHOPS'
-const GET_ONE = 'bobashops/GET_ONE'
+const GET_BOBASHOPS = 'bobaShops/GET_BOBASHOPS'
+const GET_ONE = 'bobaShops/GET_ONE'
+const ADD_ONE = 'bobaShops/ADD_ONE'
 
 
 const getBobaShops = (bobaShops) => ({
@@ -14,24 +15,46 @@ const getOneBobaShop = (bobaShop) => {
   }
 }
 
-
-export const getAllBobaShops = () => async (dispatch) => {
-  const response = await fetch('/api/bobaShops/');
-
-  if (response.ok) {
-    const bobaShops = await response.json();
-    console.log(bobaShops, "THIS IS BOBASHOPS");
-    dispatch(getBobaShops(bobaShops));
+const addOneBobaShop = (bobaShop) => {
+  return {
+    type: ADD_ONE,
+    payload: bobaShop
   }
 }
 
-export const getBobaShop = (id) => async (dispatch) => {
-  const response = await fetch(`/api/bobaShops/${id}`);
+export const getAllBobaShops = () => async (dispatch) => {
+  const response = await fetch('/api/bobaShops');
+
+  if (response.ok) {
+    const bobaShops = await response.json();
+    // console.log(bobaShops, "THIS IS BOBASHOPS");
+    dispatch(getBobaShops(Object.values(bobaShops)));
+  }
+}
+
+export const getBobaShop = (bobaShopId) => async (dispatch) => {
+  const response = await fetch(`/api/bobaShops/${bobaShopId}`);
 
   if (response.ok) {
     const bobaShop = await response.json();
     dispatch(getOneBobaShop(bobaShop));
   }
+}
+
+export const createBobaShop = (bobaShop) => async (dispatch) => {
+  console.log(bobaShop, "THIS IS BOBASHOP---");
+
+  const response = await fetch('/api/bobaShops', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(bobaShop)
+  });
+  const newBobaShop = await response.json();
+  console.log(newBobaShop, "THIS IS NEWBOBASHOP------------");
+  dispatch(addOneBobaShop(newBobaShop));
+  return newBobaShop;
 }
 
 
@@ -41,6 +64,7 @@ export default function bobaShopReducer(state = initialState, action) {
   switch (action.type) {
     case GET_BOBASHOPS:
       const allBobaShops = {};
+      // console.log(action.payload, "THIS IS ACTION.PAYLOAD------")
       action.payload.forEach(bobaShop => {
         allBobaShops[bobaShop.id] = bobaShop;
       })
@@ -49,6 +73,15 @@ export default function bobaShopReducer(state = initialState, action) {
       const bobaShop = {};
       bobaShop[action.payload.id] = action.payload;
       return { ...bobaShop }
+    case ADD_ONE:
+      const newBobaShop = {};
+      newBobaShop[action.payload.id] = action.payload;
+      return { ...newBobaShop }
+      // const newState = {
+      //   ...state,
+      //   [action.business.id]: action.business,
+      // };
+      // return newState;
     default:
       return state
   }
