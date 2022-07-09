@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { getBobaShop } from '../store/bobashops';
+import { NavLink } from 'react-router-dom';
 import './BobaShop.css';
 
 function BobaShop() {
@@ -53,17 +54,20 @@ function BobaShop() {
         <strong>Hours</strong> {bobaShop.hours}
       </li>
       {(bobaShop?.image) &&
-      <div>
-      <li>
-        <strong>Image</strong>
-      </li>
-        <li>
-        <div className='boba-image' style={{ backgroundImage: `url(${bobaShop.image})` }}>
-          {/* {bobaShop.image} */}
+        <div>
+          <li>
+            <strong>Image</strong>
+          </li>
+          <li>
+            <div className='boba-image' style={{ backgroundImage: `url(${bobaShop.image})` }}>
+              {/* {bobaShop.image} */}
+            </div>
+          </li>
         </div>
-      </li>
-      </div>
       }
+      <NavLink to={`/bobaShops/${bobaShop.id}/edit`}>
+        <button>Edit Boba Shop Details</button>
+      </NavLink>
     </ul>
   );
 }

@@ -1,6 +1,7 @@
 const GET_BOBASHOPS = 'bobaShops/GET_BOBASHOPS'
 const GET_ONE = 'bobaShops/GET_ONE'
 const ADD_ONE = 'bobaShops/ADD_ONE'
+const EDIT_ONE = 'bobaShops/EDIT_ONE'
 
 
 const getBobaShops = (bobaShops) => ({
@@ -22,6 +23,14 @@ const addOneBobaShop = (bobaShop) => {
   }
 }
 
+const editOneBobaShop = (bobaShop) => {
+  return {
+    type: EDIT_ONE,
+    payload: bobaShop
+  }
+}
+
+
 export const getAllBobaShops = () => async (dispatch) => {
   const response = await fetch('/api/bobaShops');
 
@@ -29,6 +38,7 @@ export const getAllBobaShops = () => async (dispatch) => {
     const bobaShops = await response.json();
     // console.log(bobaShops, "THIS IS BOBASHOPS");
     dispatch(getBobaShops(Object.values(bobaShops)));
+    // might need to return response here
   }
 }
 
@@ -38,6 +48,7 @@ export const getBobaShop = (bobaShopId) => async (dispatch) => {
   if (response.ok) {
     const bobaShop = await response.json();
     dispatch(getOneBobaShop(bobaShop));
+    // might need to return response here
   }
 }
 
@@ -55,6 +66,21 @@ export const createBobaShop = (bobaShop) => async (dispatch) => {
   console.log(newBobaShop, "THIS IS NEWBOBASHOP------------");
   dispatch(addOneBobaShop(newBobaShop));
   return newBobaShop;
+}
+
+export const editBobaShop = (bobaShop) => async (dispatch) => {
+  const response = await fetch(`/api/bobaShops/${bobaShop.id}`, {
+    method: 'PUT',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(bobaShop)
+  });
+  if (response.ok) {
+    const editedBobaShop = await response.json();
+    dispatch(editOneBobaShop(editedBobaShop));
+    // might todo: return editedBobaShop
+  }
 }
 
 
@@ -82,6 +108,12 @@ export default function bobaShopReducer(state = initialState, action) {
       //   [action.business.id]: action.business,
       // };
       // return newState;
+    case EDIT_ONE: // might need to fix this
+      const editedBobaShop = {
+        ...state,
+        [action.payload.id]: action.payload
+      };
+      return editedBobaShop;
     default:
       return state
   }

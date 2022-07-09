@@ -10,6 +10,7 @@ import User from './components/User';
 import BobaShopList from './components/BobaShopList';
 import BobaShop from './components/BobaShop';
 import CreateBobaShopForm from './components/CreateBobaShopForm';
+import EditBobaShopForm from './components/EditBobaShopForm';
 import { authenticate } from './store/session';
 
 function App() {
@@ -48,6 +49,9 @@ function App() {
         </ProtectedRoute>
         <ProtectedRoute path='/bobaShops/:bobaShopId' exact={true} >
           <BobaShop />
+        </ProtectedRoute>
+        <ProtectedRoute path='/bobaShops/:bobaShopId/edit' exact={true} >
+          <EditBobaShopForm />
         </ProtectedRoute>
         <ProtectedRoute path='/users/:user_id' exact={true} >
           <User />

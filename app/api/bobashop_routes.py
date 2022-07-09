@@ -16,9 +16,9 @@ bobashop_routes = Blueprint('bobaShops', __name__)
 def create_bobaShop():
     form = BobaShopForm()
     form['csrf_token'].data = request.cookies['csrf_token']
-    print('FORMMMMMMMM---------------')
-    print(request.json, "THIS IS THE REQUEST JSON")
-    print(form.data, "THIS IS THE USER ID")
+    # print('FORMMMMMMMM---------------')
+    # print(request.json, "THIS IS THE REQUEST JSON")
+    # print(form.data, "THIS IS THE USER ID")
     if form.validate_on_submit():
         # bobaShop = BobaShop(
         #     name=form.name.data,
@@ -30,7 +30,7 @@ def create_bobaShop():
         #     hours=form.hours.data,
         #     # image=form.image.data,
         # )
-        print('HELLO---------------------------------------')
+        # print('HELLO---------------------------------------')
         data = form.data
         bobaShop = BobaShop(
             user_id=data['user_id'],
@@ -66,3 +66,25 @@ def bobashop_id(id):
     bobaShop = BobaShop.query.get(id)
     # print(bobaShop.id, "this is bobashop id----------")
     return bobaShop.to_dict()
+
+# ——————————————————————————————————————————————————————————————————————————————————
+# *                                   UPDATE
+# ——————————————————————————————————————————————————————————————————————————————————
+@bobashop_routes.route('/<int:id>', methods=['PUT'])
+@login_required
+def update_bobaShop(id):
+    form = BobaShopForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
+    if form.validate_on_submit():
+        bobaShop = BobaShop.query.get(id)
+        bobaShop.name = form.name.data
+        bobaShop.address = form.address.data
+        bobaShop.city = form.city.data
+        bobaShop.state = form.state.data
+        bobaShop.zipcode = form.zipcode.data
+        bobaShop.phone = form.phone.data
+        bobaShop.hours = form.hours.data
+        bobaShop.image = form.image.data
+        db.session.commit()
+        return bobaShop.to_dict()
+    return {"errors": validation_errors_to_error_messages(form.errors)}, 401

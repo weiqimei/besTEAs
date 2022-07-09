@@ -1,12 +1,16 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory, useParams } from "react-router-dom";
-import { getAllBobaShops, createBobaShop } from "../store/bobashops";
+import { getAllBobaShops, editBobaShop, getBobaShop } from "../store/bobashops";
 
-const CreateBobaShopForm = () => {
+
+const EditBobaShopForm = () => {
   const user = useSelector(state => state.session.user);
   const user_id = user.id;
   // console.log(user_id, "THIS IS USER ID---------");
+
+  const bobaShopId = useParams().bobaShopId;
+  const bobaShop = useSelector(state => state.bobaShop);
 
   const dispatch = useDispatch();
   const history = useHistory();
@@ -32,13 +36,13 @@ const CreateBobaShopForm = () => {
   useEffect(() => { }, [name, address, city, state, zipcode, phone, hours, image]);
 
   useEffect(() => {
-    dispatch(getAllBobaShops());
-  }, [dispatch]);
-
+    dispatch(getBobaShop(bobaShopId));
+  }, [dispatch, bobaShopId]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     const newBobaShop = {
+      ...bobaShop,
       name,
       address,
       city,
@@ -49,8 +53,8 @@ const CreateBobaShopForm = () => {
       user_id,
       image
     };
-    let bobaShop = await dispatch(createBobaShop(newBobaShop));
-    if (bobaShop) {
+    let updatedBobaShop = await dispatch(editBobaShop(newBobaShop));
+    if (updatedBobaShop) {
       history.push(`/bobaShops`);
     }
   }
@@ -58,7 +62,7 @@ const CreateBobaShopForm = () => {
   return (
     <form onSubmit={handleSubmit}>
       <div>
-        <input 
+        <input
           type="text"
           placeholder="Name"
           value={name}
@@ -122,10 +126,10 @@ const CreateBobaShopForm = () => {
         />
       </div>
       <div>
-        <button type="submit">Post New Boba Shop</button>
+        <button type="submit">Update Boba Shop</button>
       </div>
     </form>
   )
 }
 
-export default CreateBobaShopForm;
+export default EditBobaShopForm;
