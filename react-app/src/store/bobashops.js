@@ -68,18 +68,45 @@ export const createBobaShop = (bobaShop) => async (dispatch) => {
   return newBobaShop;
 }
 
-export const editBobaShop = (bobaShop) => async (dispatch) => {
-  const response = await fetch(`/api/bobaShops/${bobaShop.id}`, {
+// export const editBobaShop = (bobaShop) => async (dispatch) => {
+//   const response = await fetch(`/api/bobaShops/${bobaShop.id}`, {
+//     method: 'PUT',
+//     headers: {
+//       'Content-Type': 'application/json'
+//     },
+//     body: JSON.stringify(bobaShop)
+//   });
+//   if (response.ok) {
+//     const editedBobaShop = await response.json();
+//     dispatch(editOneBobaShop(editedBobaShop));
+//     // might todo: return editedBobaShop
+//     return editedBobaShop;
+//   }
+// }
+
+// export const editBobaShop = (data, bobaShopId) => async (dispatch) => {
+//   const response = await fetch(`/api/bobaShops/${bobaShopId}`, {
+//     method: 'PUT',
+//     headers: {'Content-Type': 'application/json'},
+//     body: JSON.stringify(data)
+//   })
+//   if (response.ok) {
+//     const editedBobaShop = await response.json();
+//     dispatch(editOneBobaShop(editedBobaShop));
+//     return editedBobaShop;
+//   }
+// }
+
+export const editBobaShop = (data, bobaShopId) => async (dispatch) => {
+  console.log(bobaShopId, "--------THIS IS BOBASHOPID--------"); // FIX THIS
+  const res = await fetch(`/api/bobaShops/${bobaShopId}`, {
     method: 'PUT',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify(bobaShop)
-  });
-  if (response.ok) {
-    const editedBobaShop = await response.json();
+    body: data
+  })
+  if (res.ok) {
+    const editedBobaShop = await res.json();
     dispatch(editOneBobaShop(editedBobaShop));
-    // might todo: return editedBobaShop
+    return editedBobaShop;
   }
 }
 
@@ -108,11 +135,16 @@ export default function bobaShopReducer(state = initialState, action) {
       //   [action.business.id]: action.business,
       // };
       // return newState;
-    case EDIT_ONE: // might need to fix this
-      const editedBobaShop = {
-        ...state,
-        [action.payload.id]: action.payload
-      };
+    // case EDIT_ONE: // might need to fix this
+    //   const editedBobaShop = {
+    //     ...state,
+    //     [action.payload.id]: action.payload
+    //   };
+    //   return editedBobaShop;
+    case EDIT_ONE:
+      let editedBobaShop = { ...state };
+      bobaShop = action.payload;
+      editedBobaShop[bobaShop.id] = bobaShop;
       return editedBobaShop;
     default:
       return state
