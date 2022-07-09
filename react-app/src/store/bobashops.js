@@ -43,6 +43,7 @@ export const getAllBobaShops = () => async (dispatch) => {
 }
 
 export const getBobaShop = (bobaShopId) => async (dispatch) => {
+  console.log(bobaShopId, "--------THIS IS BOBASHOPID from getBobaShop--------");
   const response = await fetch(`/api/bobaShops/${bobaShopId}`);
 
   if (response.ok) {
@@ -98,7 +99,7 @@ export const createBobaShop = (bobaShop) => async (dispatch) => {
 // }
 
 export const editBobaShop = (data, bobaShopId) => async (dispatch) => {
-  console.log(bobaShopId, "--------THIS IS BOBASHOPID--------"); // FIX THIS
+  console.log(bobaShopId, "--------THIS IS BOBASHOPID from editBobaShop--------"); // FIX THIS
   const res = await fetch(`/api/bobaShops/${bobaShopId}`, {
     method: 'PUT',
     body: data
