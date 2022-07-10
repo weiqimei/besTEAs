@@ -14,7 +14,7 @@ function BobaShop() {
     dispatch(getBobaShop(bobaShopId));
   }, [dispatch, bobaShopId]);
 
-  const bobaShopState = useSelector(state => state.bobaShops);
+  const bobaShopState = useSelector(state => state.bobaShopReducer);
   console.log(bobaShopState, "---THIS IS BOBASHOPSTATE---");
 
   console.log(bobaShopId, 'THIS IS BOBA SHOP ID from BobaShop.js-------------------');

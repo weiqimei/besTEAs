@@ -90,7 +90,7 @@ def bobashop_id(id):
 #     return {"errors": validation_errors_to_error_messages(form.errors)}, 401
 
 @bobashop_routes.route('/<int:id>', methods=['PUT'])
-@login_required
+# @login_required
 def update_bobaShop(id):
     form = BobaShopForm()
     form['csrf_token'].data = request.cookies['csrf_token']

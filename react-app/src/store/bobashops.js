@@ -98,11 +98,27 @@ export const createBobaShop = (bobaShop) => async (dispatch) => {
 //   }
 // }
 
-export const editBobaShop = (data, bobaShopId) => async (dispatch) => {
-  console.log(bobaShopId, "--------THIS IS BOBASHOPID from editBobaShop--------"); // FIX THIS
-  const res = await fetch(`/api/bobaShops/${bobaShopId}`, {
+// export const editBobaShop = (data, bobaShopId) => async (dispatch) => {
+//   console.log(bobaShopId, "--------THIS IS BOBASHOPID from editBobaShop--------"); // FIX THIS
+//   const res = await fetch(`/api/bobaShops/${bobaShopId}`, {
+//     method: 'PUT',
+//     body: data
+//   })
+//   if (res.ok) {
+//     const editedBobaShop = await res.json();
+//     dispatch(editOneBobaShop(editedBobaShop));
+//     return editedBobaShop;
+//   }
+// }
+
+export const editBobaShop = (data) => async (dispatch) => {
+  // console.log(bobaShopId, "--------THIS IS BOBASHOPID from editBobaShop--------"); // FIX THIS
+  const res = await fetch(`/api/bobaShops/${data.id}`, {
     method: 'PUT',
-    body: data
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(data)
   })
   if (res.ok) {
     const editedBobaShop = await res.json();
@@ -136,17 +152,27 @@ export default function bobaShopReducer(state = initialState, action) {
       //   [action.business.id]: action.business,
       // };
       // return newState;
-    // case EDIT_ONE: // might need to fix this
-    //   const editedBobaShop = {
-    //     ...state,
-    //     [action.payload.id]: action.payload
-    //   };
-    //   return editedBobaShop;
-    case EDIT_ONE:
-      let editedBobaShop = { ...state };
-      bobaShop = action.payload;
-      editedBobaShop[bobaShop.id] = bobaShop;
+    case EDIT_ONE: // might need to fix this
+      const editedBobaShop = {
+        ...state,
+        [action.payload.id]: action.payload
+      };
       return editedBobaShop;
+    // case EDIT_ONE:
+    //   let editedBobaShop = { ...state };
+    //   bobaShop = action.payload;
+    //   editedBobaShop[bobaShop.id] = bobaShop;
+    //   return editedBobaShop;
+      // case EDIT_ONE:
+      //   for (let bobaShop in state.payload) {
+      //     if (bobaShop.id === action.payload.id) {
+      //       return action.payload;
+      //     }
+      //     else {
+      //       return bobaShop;
+      //     }
+      //   }
+      //   return { ...state };
     default:
       return state
   }
