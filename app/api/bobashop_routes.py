@@ -66,3 +66,20 @@ def bobashop_id(id):
     bobaShop = BobaShop.query.get(id)
     # print(bobaShop.id, "this is bobashop id----------")
     return bobaShop.to_dict()
+
+
+
+
+
+
+# ——————————————————————————————————————————————————————————————————————————————————
+# *                                   DELETE
+# ——————————————————————————————————————————————————————————————————————————————————
+@bobashop_routes.route('/<int:id>', methods=['DELETE'])
+@login_required
+def delete_bobaShop(id):
+    bobaShop = BobaShop.query.get(id)
+    # need to check if user is owner of bobaShop !!!!!!!!!!!!!!!!!!!
+    db.session.delete(bobaShop)
+    db.session.commit()
+    return bobaShop.to_dict()

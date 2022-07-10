@@ -1,6 +1,7 @@
 const GET_BOBASHOPS = 'bobaShops/GET_BOBASHOPS'
 const GET_ONE = 'bobaShops/GET_ONE'
 const ADD_ONE = 'bobaShops/ADD_ONE'
+const REMOVE_BOBASHOP = 'bobaShops/REMOVE_BOBASHOP'
 
 
 const getBobaShops = (bobaShops) => ({
@@ -19,6 +20,13 @@ const addOneBobaShop = (bobaShop) => {
   return {
     type: ADD_ONE,
     payload: bobaShop
+  }
+}
+
+const removeBobaShop = (bobaShopId) => {
+  return {
+    type: REMOVE_BOBASHOP,
+    payload: bobaShopId
   }
 }
 
@@ -57,6 +65,16 @@ export const createBobaShop = (bobaShop) => async (dispatch) => {
   return newBobaShop;
 }
 
+export const deleteBobaShop = (bobaShopId) => async (dispatch) => {
+  console.log(bobaShopId, "-----THIS IS BOBASHOPID from deleteBobaShop thunk");
+  const response = await fetch(`/api/bobaShops/${bobaShopId}`, {
+    method: 'DELETE'
+  });
+
+  if (response.ok) {
+    dispatch(removeBobaShop(bobaShopId));
+  }
+}
 
 const initialState = {}
 
@@ -82,6 +100,11 @@ export default function bobaShopReducer(state = initialState, action) {
       //   [action.business.id]: action.business,
       // };
       // return newState;
+    case REMOVE_BOBASHOP:
+      const newState = { ...state };
+      const bobaShopId = action.payload;
+      delete newState[bobaShopId];
+      return newState;  
     default:
       return state
   }
