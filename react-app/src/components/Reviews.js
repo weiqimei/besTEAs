@@ -1,4 +1,18 @@
+import React, { useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { useParams, NavLink } from "react-router-dom";
+import { getAllBobaShops, getBobaShop } from '../store/bobashops';
+
+
 function Reviews({ reviews }) {
+  const { bobaShopId } = useParams();
+  const dispatch = useDispatch();
+
+
+  useEffect(() => {
+    dispatch(getBobaShop(bobaShopId));
+  }, [dispatch, bobaShopId]);
+
   return (
     <>
       <h2>Reviews</h2>
@@ -9,6 +23,9 @@ function Reviews({ reviews }) {
             <div className='boba-image' style={{ backgroundImage: `url(${review.picture})` }}></div>
             <div>Date Reviewed: {review.date}</div>
             {/* add the other review columns */}
+            <NavLink to={`/bobaShops/${bobaShopId}/${review.id}/delete`}>
+              <button>Delete Review</button>
+            </NavLink>
           </li>
         })}
       </ul>
