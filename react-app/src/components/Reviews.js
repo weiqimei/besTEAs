@@ -23,6 +23,9 @@ function Reviews({ reviews }) {
             <div className='boba-image' style={{ backgroundImage: `url(${review.picture})` }}></div>
             <div>Date Reviewed: {review.date}</div>
             {/* add the other review columns */}
+            <NavLink to={`/bobaShops/${bobaShopId}/${review.id}/edit`}>
+              <button>Edit Review</button>
+            </NavLink>
             <NavLink to={`/bobaShops/${bobaShopId}/${review.id}/delete`}>
               <button>Delete Review</button>
             </NavLink>
