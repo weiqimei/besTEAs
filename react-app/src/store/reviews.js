@@ -102,6 +102,7 @@ export const addReview = (bobaShopId, review, user_id) => async (dispatch) => {
 
 export const editReview = (reviewId, review) => async (dispatch) => {
   console.log(reviewId, "THIS IS REVIEWID from reviews.js editReview thunk");
+  console.log(review, "THIS IS REVIEW from reviews.js editReview thunk");
   const response = await fetch(`/api/reviews/${reviewId}`, {
     method: 'PUT',
     headers: {

@@ -48,26 +48,38 @@ def get_reviews(id):
 # ——————————————————————————————————————————————————————————————————————————————————
 # *                                   UPDATE
 # ——————————————————————————————————————————————————————————————————————————————————
-@review_routes.route('/<int:bobaShopId>', methods=['PUT'])
+@review_routes.route('/<int:reviewId>', methods=['PUT'])
 @login_required
 
 
-def update_review(bobaShopId):
+def update_review(reviewId):
     # print(bobaShopId, 'this is bobashop id from updated reviews--------------------------------------------------')
+    
+    review = Review.query.filter(Review.id == reviewId).first()
+    
     form = ReviewForm()
+    data = form.data
+
     form['csrf_token'].data = request.cookies['csrf_token']
 
     print('IN UPDATE REVIEW ROUTE--------')
     print(form.data, '------this is the form data from update reviews')
     if form.validate_on_submit():
         print('---------FORM DATA VALIDATED for update review---------------------------------------')
-        data = form.data
-        review = Review.query.filter(Review.id == bobaShopId).first()
-        review.user_id = current_user.to_dict()['id']
-        review.boba_shop_id = bobaShopId
-        review.content = data['content']
-        review.picture = data['picture']
-        review.date = datetime.utcnow()
+        # review.user_id = current_user.to_dict()['id']
+        # # review.boba_shop_id = bobaShopId
+        # review.content = data['content']
+        # review.picture = data['picture']
+        # review.date = datetime.utcnow()
+
+        review = Review(
+            # user_id=data['user_id'],
+            user_id=current_user.to_dict()['id'],
+            # boba_shop_id=bobaShopId,
+            content=data['content'],
+            picture=data['picture'],
+            date=datetime.utcnow() # datetime.datetime.now().date()
+        )
 
         db.session.commit()
         return review.to_dict()

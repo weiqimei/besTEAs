@@ -8,16 +8,18 @@ const EditReviewForm = () => {
   const user_id = user.id;
   // console.log(user_id, "THIS IS USER ID---------");
 
+  const { bobaShopId } = useParams();
+
   const dispatch = useDispatch();
   const history = useHistory();
 
   const { reviewId } = useParams();
   console.log(reviewId, "THIS IS REVIEW ID----from EditReviewForm-----");
 
-  const reviewObject = Object.values(useSelector(state => state.reviewReducer))
-  console.log(reviewObject, "THIS IS REVIEW OBJECT---------");
+  const reviewArray = Object.values(useSelector(state => state.reviewReducer))
+  console.log(reviewArray, "THIS IS REVIEW Array---------");
   
-  const review = reviewObject[0];
+  const review = reviewArray.filter(review => review.id === reviewId);
   console.log(review, "----THIS IS REVIEW---------");
 
   const [content, setContent] = useState(review.content);
@@ -26,7 +28,7 @@ const EditReviewForm = () => {
 
   const updateContent = (e) => setContent(e.target.value);
   const updatePicture = (e) => setPicture(e.target.value);
-  const updateDate = (e) => setDate(e.target.value);
+  // const updateDate = (e) => setDate(e.target.value);
 
   // errors handling
   useEffect(() => { }, [content, picture]);
@@ -47,6 +49,9 @@ const EditReviewForm = () => {
       picture,
       // date
     };
+
+    console.log(newReview, "THIS IS NEW REVIEW---------");
+
     let editedReview = await dispatch(editReview(reviewId, newReview));
     if (editedReview) {
       history.push(`/bobaShops`);
