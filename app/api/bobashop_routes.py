@@ -95,7 +95,7 @@ def update_bobaShop(id):
     form = BobaShopForm()
     form['csrf_token'].data = request.cookies['csrf_token']
 
-    print(bobaShop.id, "-----this is bobashop id----------")
+    # print(bobaShop.id, "-----this is bobashop id----------")
 
     if form.validate_on_submit():
         data = form.data
