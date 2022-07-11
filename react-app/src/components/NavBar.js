@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import LogoutButton from './auth/LogoutButton';
@@ -23,11 +22,11 @@ const NavBar = () => {
             Sign Up
           </NavLink>
         </div>
-        <div className='each-nav-element'>
+        {/* <div className='each-nav-element'>
           <NavLink to='/users' exact={true} activeClassName='active'>
             Users
           </NavLink>
-        </div>
+        </div> */}
         <div className='each-nav-element'>
           <NavLink to='/bobaShops' exact={true} activeClassName='active'>
             Boba Shops
