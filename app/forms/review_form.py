@@ -4,8 +4,8 @@ from wtforms import StringField, IntegerField, DateField
 
 
 class ReviewForm(FlaskForm):
-  user_id = IntegerField('user_id')
-  bobaShop_id = IntegerField('bobaShop_id')
+  # user_id = IntegerField('user_id')
+  # boba_shop_id = IntegerField('boba_shop_id')
   content = StringField('content')
   picture = StringField('picture')
   date = DateField('date')

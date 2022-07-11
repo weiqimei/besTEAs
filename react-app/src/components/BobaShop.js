@@ -4,6 +4,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getAllBobaShops, getBobaShop } from '../store/bobashops';
 import Reviews from './Reviews';
 import { getAllReviews } from '../store/reviews';
+import CreateReviewForm from './CreateReviewForm';
+
 import './BobaShop.css';
 
 function BobaShop() {
@@ -82,6 +84,9 @@ function BobaShop() {
       </ul>
       <div>
         <Reviews reviews={bobaShopReviews} />
+      </div>
+      <div>
+        <CreateReviewForm bobaShopId={bobaShopId} />
       </div>
     </>
   );
