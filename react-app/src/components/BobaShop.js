@@ -78,6 +78,9 @@ function BobaShop() {
             </li>
           </div>
         }
+        <NavLink to={`/bobaShops/${bobaShop.id}/edit`}>
+          <button>Edit Boba Shop Details</button>
+        </NavLink>
         <NavLink to={`/bobaShops/${bobaShop.id}/delete`}>
           <button>Delete Boba Shop</button>
         </NavLink>

@@ -1,6 +1,7 @@
 const GET_BOBASHOPS = 'bobaShops/GET_BOBASHOPS'
 const GET_ONE = 'bobaShops/GET_ONE'
 const ADD_ONE = 'bobaShops/ADD_ONE'
+const EDIT_ONE = 'bobaShops/EDIT_ONE'
 const REMOVE_BOBASHOP = 'bobaShops/REMOVE_BOBASHOP'
 
 
@@ -19,6 +20,13 @@ const getOneBobaShop = (bobaShop) => {
 const addOneBobaShop = (bobaShop) => {
   return {
     type: ADD_ONE,
+    payload: bobaShop
+  }
+}
+
+const editOneBobaShop = (bobaShop) => {
+  return {
+    type: EDIT_ONE,
     payload: bobaShop
   }
 }
@@ -65,6 +73,64 @@ export const createBobaShop = (bobaShop) => async (dispatch) => {
   return newBobaShop;
 }
 
+// export const editBobaShop = (bobaShop) => async (dispatch) => {
+//   const response = await fetch(`/api/bobaShops/${bobaShop.id}`, {
+//     method: 'PUT',
+//     headers: {
+//       'Content-Type': 'application/json'
+//     },
+//     body: JSON.stringify(bobaShop)
+//   });
+//   if (response.ok) {
+//     const editedBobaShop = await response.json();
+//     dispatch(editOneBobaShop(editedBobaShop));
+//     // might todo: return editedBobaShop
+//     return editedBobaShop;
+//   }
+// }
+
+// export const editBobaShop = (data, bobaShopId) => async (dispatch) => {
+//   const response = await fetch(`/api/bobaShops/${bobaShopId}`, {
+//     method: 'PUT',
+//     headers: {'Content-Type': 'application/json'},
+//     body: JSON.stringify(data)
+//   })
+//   if (response.ok) {
+//     const editedBobaShop = await response.json();
+//     dispatch(editOneBobaShop(editedBobaShop));
+//     return editedBobaShop;
+//   }
+// }
+
+// export const editBobaShop = (data, bobaShopId) => async (dispatch) => {
+//   console.log(bobaShopId, "--------THIS IS BOBASHOPID from editBobaShop--------"); // FIX THIS
+//   const res = await fetch(`/api/bobaShops/${bobaShopId}`, {
+//     method: 'PUT',
+//     body: data
+//   })
+//   if (res.ok) {
+//     const editedBobaShop = await res.json();
+//     dispatch(editOneBobaShop(editedBobaShop));
+//     return editedBobaShop;
+//   }
+// }
+
+export const editBobaShop = (data) => async (dispatch) => {
+  // console.log(bobaShopId, "--------THIS IS BOBASHOPID from editBobaShop--------"); // FIX THIS
+  const res = await fetch(`/api/bobaShops/${data.id}`, {
+    method: 'PUT',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(data)
+  })
+  if (res.ok) {
+    const editedBobaShop = await res.json();
+    dispatch(editOneBobaShop(editedBobaShop));
+    return editedBobaShop;
+  }
+}
+
 export const deleteBobaShop = (bobaShopId) => async (dispatch) => {
   console.log(bobaShopId, "-----THIS IS BOBASHOPID from deleteBobaShop thunk");
   const response = await fetch(`/api/bobaShops/${bobaShopId}`, {
@@ -95,16 +161,37 @@ export default function bobaShopReducer(state = initialState, action) {
       const newBobaShop = {};
       newBobaShop[action.payload.id] = action.payload;
       return { ...newBobaShop }
-      // const newState = {
-      //   ...state,
-      //   [action.business.id]: action.business,
-      // };
-      // return newState;
+    // const newState = {
+    //   ...state,
+    //   [action.business.id]: action.business,
+    // };
+    // return newState;
+    case EDIT_ONE: // might need to fix this
+      const editedBobaShop = {
+        ...state,
+        [action.payload.id]: action.payload
+      };
+      return editedBobaShop;
+    // case EDIT_ONE:
+    //   let editedBobaShop = { ...state };
+    //   bobaShop = action.payload;
+    //   editedBobaShop[bobaShop.id] = bobaShop;
+    //   return editedBobaShop;
+      // case EDIT_ONE:
+      //   for (let bobaShop in state.payload) {
+      //     if (bobaShop.id === action.payload.id) {
+      //       return action.payload;
+      //     }
+      //     else {
+      //       return bobaShop;
+      //     }
+      //   }
+      //   return { ...state };
     case REMOVE_BOBASHOP:
       const newState = { ...state };
       const bobaShopId = action.payload;
       delete newState[bobaShopId];
-      return newState;  
+      return newState;
     default:
       return state
   }

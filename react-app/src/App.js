@@ -10,6 +10,7 @@ import User from './components/User';
 import BobaShopList from './components/BobaShopList';
 import BobaShop from './components/BobaShop';
 import CreateBobaShopForm from './components/CreateBobaShopForm';
+import EditBobaShopForm from './components/EditBobaShopForm';
 import DeleteBobaShopConfirmationPage from './components/DeleteBobaShopConfirmationPage';
 import { authenticate } from './store/session';
 
@@ -18,7 +19,7 @@ function App() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    (async() => {
+    (async () => {
       await dispatch(authenticate());
       setLoaded(true);
     })();
@@ -39,7 +40,7 @@ function App() {
           <SignUpForm />
         </Route>
         <ProtectedRoute path='/users' exact={true} >
-          <UsersList/>
+          <UsersList />
         </ProtectedRoute>
         <ProtectedRoute path='/bobaShops' exact={true} >
           <BobaShopList />
@@ -49,6 +50,9 @@ function App() {
         </ProtectedRoute>
         <ProtectedRoute path='/bobaShops/:bobaShopId' exact={true} >
           <BobaShop />
+        </ProtectedRoute>
+        <ProtectedRoute path='/bobaShops/:bobaShopId/edit' exact={true} >
+          <EditBobaShopForm />
         </ProtectedRoute>
         <ProtectedRoute path='/bobaShops/:bobaShopId/delete' exact={true} >
           <DeleteBobaShopConfirmationPage />
