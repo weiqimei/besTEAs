@@ -1,6 +1,14 @@
+const GET_REVIEW = 'reviews/GET_REVIEW';
 const GET_REVIEWS = 'GET_REVIEWS';
 const ADD_REVIEW = 'ADD_REVIEW';
+const DELETE_REVIEW = 'DELETE_REVIEW';
 
+const getOneReview = (review) => {
+  return {
+    type: GET_REVIEW,
+    payload: review
+  }
+}
 
 const getReviews = (reviews) => ({
   type: GET_REVIEWS,
@@ -14,6 +22,20 @@ const addOneReview = (review) => {
   }
 }
 
+const deleteOneReview = (reviewId) => {
+  return {
+    type: DELETE_REVIEW,
+    payload: reviewId
+  }
+}
+
+export const getReview = (reviewId) => async (dispatch) => {
+  const response = await fetch(`/api/reviews/${reviewId}`);
+  if (response.ok) {
+    const review = await response.json();
+    dispatch(getOneReview(review));
+  }
+}
 
 export const getAllReviews = (bobaShopId) => async (dispatch) => {
   const response = await fetch(`/api/reviews/${bobaShopId}`);
@@ -27,7 +49,6 @@ export const getAllReviews = (bobaShopId) => async (dispatch) => {
   }
 }
 
-// this is not working!!!
 export const addReview = (bobaShopId, review, user_id) => async (dispatch) => {
   console.log(review, "THIS IS REVIEW from reviews.js addReview thunk");
   console.log(typeof bobaShopId, "THIS IS BOBASHOPID from reviews.js addReview thunk");
@@ -69,6 +90,17 @@ export const addReview = (bobaShopId, review, user_id) => async (dispatch) => {
 //   }
 // }
 
+export const deleteReview = (reviewId) => async (dispatch) => {
+  console.log(reviewId, "THIS IS REVIEWID from reviews.js deleteReview thunk");
+  const response = await fetch(`/api/reviews/${reviewId}`, {
+    method: 'DELETE',
+    body: JSON.stringify({ reviewId })
+  });
+  if (response.ok) {
+    dispatch(deleteOneReview(reviewId));
+  }
+}
+
 const initialState = {}
 
 const reviewReducer = (state = initialState, action) => {
@@ -80,10 +112,13 @@ const reviewReducer = (state = initialState, action) => {
       }
       return { ...allReviews }
     case ADD_REVIEW: // might need to fix this
-      const newState = {
+      return {
         ...state,
         [action.payload.id]: action.payload
       }
+    case DELETE_REVIEW:
+      const newState = { ...state };
+      delete newState[action.payload];
       return newState;
     default:
       return state;

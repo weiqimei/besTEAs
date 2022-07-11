@@ -64,3 +64,15 @@ def create_review(bobaShopId):
 def get_reviews(id):
     reviews = Review.query.filter(Review.boba_shop_id == id) 
     return {'reviews': [review.to_dict() for review in reviews]}
+
+
+# ——————————————————————————————————————————————————————————————————————————————————
+# *                                   DELETE
+# ——————————————————————————————————————————————————————————————————————————————————
+@review_routes.route('/<int:id>', methods=['DELETE'])
+@login_required
+def delete_review(id):
+    review = Review.query.get(id)
+    db.session.delete(review)
+    db.session.commit()
+    return review.to_dict()
