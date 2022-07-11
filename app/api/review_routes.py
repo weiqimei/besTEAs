@@ -40,7 +40,7 @@ def create_review(bobaShopId):
 # ——————————————————————————————————————————————————————————————————————————————————
 # might need to fix this
 @review_routes.route('/<int:id>')
-@login_required
+# @login_required
 def get_reviews(id):
     reviews = Review.query.filter(Review.boba_shop_id == id) 
     return {'reviews': [review.to_dict() for review in reviews]}
@@ -56,7 +56,10 @@ def update_review(reviewId):
     # print(bobaShopId, 'this is bobashop id from updated reviews--------------------------------------------------')
     
     review = Review.query.filter(Review.id == reviewId).first()
-    
+
+    print(reviewId, 'this is review id from backend update reviews--------------------------------------------------')
+    print(review, 'this is review from backend update reviews--------------------------------------------------')
+
     form = ReviewForm()
     data = form.data
 
@@ -68,18 +71,18 @@ def update_review(reviewId):
         print('---------FORM DATA VALIDATED for update review---------------------------------------')
         # review.user_id = current_user.to_dict()['id']
         # # review.boba_shop_id = bobaShopId
-        # review.content = data['content']
-        # review.picture = data['picture']
-        # review.date = datetime.utcnow()
+        review.content = data['content']
+        review.picture = data['picture']
+        review.date = datetime.utcnow()
 
-        review = Review(
-            # user_id=data['user_id'],
-            user_id=current_user.to_dict()['id'],
-            # boba_shop_id=bobaShopId,
-            content=data['content'],
-            picture=data['picture'],
-            date=datetime.utcnow() # datetime.datetime.now().date()
-        )
+        # review = Review(
+        #     # user_id=data['user_id'],
+        #     # user_id=current_user.to_dict()['id'],
+        #     # boba_shop_id=bobaShopId,
+        #     content=data['content'],
+        #     picture=data['picture'],
+        #     date=datetime.utcnow() # datetime.datetime.now().date()
+        # )
 
         db.session.commit()
         return review.to_dict()

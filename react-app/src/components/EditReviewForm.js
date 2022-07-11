@@ -19,7 +19,8 @@ const EditReviewForm = () => {
   const reviewArray = Object.values(useSelector(state => state.reviewReducer))
   console.log(reviewArray, "THIS IS REVIEW Array---------");
   
-  const review = reviewArray.filter(review => review.id === reviewId);
+  const review = reviewArray.filter(review => review.id === parseInt(reviewId));
+  
   console.log(review, "----THIS IS REVIEW---------");
 
   const [content, setContent] = useState(review.content);

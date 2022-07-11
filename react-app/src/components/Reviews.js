@@ -8,6 +8,7 @@ function Reviews({ reviews }) {
   const { bobaShopId } = useParams();
   const dispatch = useDispatch();
 
+  // console.log(typeof bobaShopId, "THIS IS BOBASHOPID from Reviews.js");
 
   useEffect(() => {
     dispatch(getBobaShop(bobaShopId));
