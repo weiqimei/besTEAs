@@ -21,7 +21,7 @@ def create_review(bobaShopId):
     print(data, "---THIS IS THE REQUEST DATA----")
 
     if form.validate_on_submit():
-        print('---------FORM DATA VALIDATED---------------------------------------')
+        print('---------FORM DATA VALIDATED for create review---------------------------------------')
         review = Review(
             # user_id=data['user_id'],
             user_id=current_user.to_dict()['id'],
@@ -35,35 +35,60 @@ def create_review(bobaShopId):
         return review.to_dict()
     return {"errors": validation_errors_to_error_messages(form.errors)}, 401
 
-# @review_routes.route('/<int:bobaShopId>', methods=['POST'])
-# @login_required
-# def create_review(bobaShopId):
-#     form = ReviewForm()
-#     form['csrf_token'].data = request.cookies['csrf_token']
-#     data = form.data
-#     if form.validate_on_submit():
-#         review = Review(
-#             user_id=data['user_id'],
-#             boba_shop_id=bobaShopId,
-#             content=data['content'],
-#             picture=data['picture'],
-#             date=data['date'] # datetime.datetime.now().date()
-#         )
-#         db.session.add(review)
-#         db.session.commit()
-#         return review.to_dict()
-#     return {"errors": validation_errors_to_error_messages(form.errors)}, 401
-
-
 # ——————————————————————————————————————————————————————————————————————————————————
 # *                                   READ
 # ——————————————————————————————————————————————————————————————————————————————————
 # might need to fix this
 @review_routes.route('/<int:id>')
-@login_required
+# @login_required
 def get_reviews(id):
     reviews = Review.query.filter(Review.boba_shop_id == id) 
     return {'reviews': [review.to_dict() for review in reviews]}
+
+# ——————————————————————————————————————————————————————————————————————————————————
+# *                                   UPDATE
+# ——————————————————————————————————————————————————————————————————————————————————
+@review_routes.route('/<int:reviewId>', methods=['PUT'])
+@login_required
+
+
+def update_review(reviewId):
+    # print(bobaShopId, 'this is bobashop id from updated reviews--------------------------------------------------')
+    
+    review = Review.query.filter(Review.id == reviewId).first()
+
+    print(reviewId, 'this is review id from backend update reviews--------------------------------------------------')
+    print(review, 'this is review from backend update reviews--------------------------------------------------')
+
+    form = ReviewForm()
+    data = form.data
+
+    form['csrf_token'].data = request.cookies['csrf_token']
+
+    print('IN UPDATE REVIEW ROUTE--------')
+    print(form.data, '------this is the form data from update reviews')
+    if form.validate_on_submit():
+        print('---------FORM DATA VALIDATED for update review---------------------------------------')
+        # review.user_id = current_user.to_dict()['id']
+        # # review.boba_shop_id = bobaShopId
+        review.content = data['content']
+        review.picture = data['picture']
+        review.date = datetime.utcnow()
+
+        # review = Review(
+        #     # user_id=data['user_id'],
+        #     # user_id=current_user.to_dict()['id'],
+        #     # boba_shop_id=bobaShopId,
+        #     content=data['content'],
+        #     picture=data['picture'],
+        #     date=datetime.utcnow() # datetime.datetime.now().date()
+        # )
+
+        db.session.commit()
+        return review.to_dict()
+    return {"errors": validation_errors_to_error_messages(form.errors)}, 401
+
+
 
 
 # ——————————————————————————————————————————————————————————————————————————————————

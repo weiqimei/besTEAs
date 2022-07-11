@@ -1,6 +1,7 @@
 const GET_REVIEW = 'reviews/GET_REVIEW';
 const GET_REVIEWS = 'GET_REVIEWS';
 const ADD_REVIEW = 'ADD_REVIEW';
+const EDIT_REVIEW = 'EDIT_REVIEW';
 const DELETE_REVIEW = 'DELETE_REVIEW';
 
 const getOneReview = (review) => {
@@ -22,6 +23,13 @@ const addOneReview = (review) => {
   }
 }
 
+const editOneReview = (review) => {
+  return {
+    type: EDIT_REVIEW,
+    payload: review
+  }
+}
+
 const deleteOneReview = (reviewId) => {
   return {
     type: DELETE_REVIEW,
@@ -30,6 +38,8 @@ const deleteOneReview = (reviewId) => {
 }
 
 export const getReview = (reviewId) => async (dispatch) => {
+  console.log(reviewId, "------THIS IS REVIEW ID from getReview reviews.js");
+
   const response = await fetch(`/api/reviews/${reviewId}`);
   if (response.ok) {
     const review = await response.json();
@@ -90,6 +100,24 @@ export const addReview = (bobaShopId, review, user_id) => async (dispatch) => {
 //   }
 // }
 
+export const editReview = (reviewId, review) => async (dispatch) => {
+  console.log(reviewId, "THIS IS REVIEWID from reviews.js editReview thunk");
+  console.log(review, "THIS IS REVIEW from reviews.js editReview thunk");
+  const response = await fetch(`/api/reviews/${reviewId}`, {
+    method: 'PUT',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(review)
+  });
+  if (response.ok) {
+    const editedReview = await response.json();
+    dispatch(editOneReview(editedReview));
+    return editedReview;
+  }
+}
+
+
 export const deleteReview = (reviewId) => async (dispatch) => {
   console.log(reviewId, "THIS IS REVIEWID from reviews.js deleteReview thunk");
   const response = await fetch(`/api/reviews/${reviewId}`, {
@@ -112,6 +140,11 @@ const reviewReducer = (state = initialState, action) => {
       }
       return { ...allReviews }
     case ADD_REVIEW: // might need to fix this
+      return {
+        ...state,
+        [action.payload.id]: action.payload
+      }
+    case EDIT_REVIEW:
       return {
         ...state,
         [action.payload.id]: action.payload

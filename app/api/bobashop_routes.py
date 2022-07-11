@@ -54,7 +54,7 @@ def create_bobaShop():
 # *                                   READ
 # ——————————————————————————————————————————————————————————————————————————————————
 @bobashop_routes.route('/')
-@login_required
+# @login_required
 def bobashop():
     bobaShops = BobaShop.query.all()
     # print(bobaShops, "this is bobashop")
