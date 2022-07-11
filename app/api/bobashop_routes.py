@@ -1,5 +1,5 @@
 from flask import Blueprint, jsonify, request
-from flask_login import login_required
+from flask_login import login_required, current_user
 from app.models import db, BobaShop
 from app.forms import BobaShopForm
 from .auth_routes import validation_errors_to_error_messages
@@ -9,7 +9,7 @@ bobashop_routes = Blueprint('bobaShops', __name__)
 
 
 # ——————————————————————————————————————————————————————————————————————————————————
-# *                                   CREATE                                       *
+# *                                   CREATE                                       
 # ——————————————————————————————————————————————————————————————————————————————————
 @bobashop_routes.route('', methods=['POST'])
 @login_required
@@ -33,7 +33,8 @@ def create_bobaShop():
         # print('HELLO---------------------------------------')
         data = form.data
         bobaShop = BobaShop(
-            user_id=data['user_id'],
+            # user_id=data['user_id'],
+            user_id=current_user.to_dict()['id'],
             name=data['name'],
             address=data['address'],
             city=data['city'],
@@ -116,3 +117,19 @@ def update_bobaShop(id):
         db.session.commit()
         return bobaShop.to_dict()
     return {"errors": validation_errors_to_error_messages(form.errors)}, 401
+
+
+
+
+
+# ——————————————————————————————————————————————————————————————————————————————————
+# *                                   DELETE
+# ——————————————————————————————————————————————————————————————————————————————————
+@bobashop_routes.route('/<int:id>', methods=['DELETE'])
+@login_required
+def delete_bobaShop(id):
+    bobaShop = BobaShop.query.get(id)
+    # need to check if user is owner of bobaShop !!!!!!!!!!!!!!!!!!!
+    db.session.delete(bobaShop)
+    db.session.commit()
+    return bobaShop.to_dict()
