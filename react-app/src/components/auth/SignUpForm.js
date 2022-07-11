@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import { Redirect } from 'react-router-dom';
 import { signUp } from '../../store/session';
+import { useHistory } from 'react-router-dom';
+
 
 
 const SignUpForm = () => {
@@ -14,6 +16,7 @@ const SignUpForm = () => {
   const [repeatPassword, setRepeatPassword] = useState('');
   const user = useSelector(state => state.session.user);
   const dispatch = useDispatch();
+  const history = useHistory();
 
   const onSignUp = async (e) => {
     e.preventDefault();
@@ -22,6 +25,7 @@ const SignUpForm = () => {
       if (data) {
         setErrors(data)
       }
+      history.push('/bobaShops');
     }
   };
 

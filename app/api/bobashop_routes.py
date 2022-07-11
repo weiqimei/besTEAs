@@ -62,7 +62,7 @@ def bobashop():
 
 
 @bobashop_routes.route('/<int:id>')
-@login_required
+# @login_required
 def bobashop_id(id):
     bobaShop = BobaShop.query.get(id)
     # print(bobaShop.id, "this is bobashop id----------")
