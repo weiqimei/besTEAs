@@ -44,12 +44,12 @@ function App() {
         <Route path='/sign-up' exact={true}>
           <SignUpForm />
         </Route>
-        <ProtectedRoute path='/users' exact={true} >
+        {/* <ProtectedRoute path='/users' exact={true} >
           <UsersList />
-        </ProtectedRoute>
-        <ProtectedRoute path='/bobaShops' exact={true} >
+        </ProtectedRoute> */}
+        <Route path='/bobaShops' exact={true} >
           <BobaShopList />
-        </ProtectedRoute>
+        </Route>
         <ProtectedRoute path='/bobaShops/new' exact={true} >
           <CreateBobaShopForm />
         </ProtectedRoute>
@@ -68,9 +68,9 @@ function App() {
         <ProtectedRoute path='/bobaShops/:bobaShopId/:reviewId/edit' exact={true} >
           <EditReviewForm />
         </ProtectedRoute>
-        <ProtectedRoute path='/users/:user_id' exact={true} >
+        {/* <ProtectedRoute path='/users/:user_id' exact={true} >
           <User />
-        </ProtectedRoute>
+        </ProtectedRoute> */}
       </Switch>
     </BrowserRouter>
   );
