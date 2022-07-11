@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, NavLink } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { getBobaShop } from '../store/bobashops';
-import { NavLink } from 'react-router-dom';
 import { getAllBobaShops, getBobaShop } from '../store/bobashops';
 import Reviews from './Reviews';
 import { getAllReviews } from '../store/reviews';
@@ -19,11 +17,9 @@ function BobaShop() {
     dispatch(getBobaShop(bobaShopId));
   }, [dispatch, bobaShopId]);
 
-  const bobaShopState = useSelector(state => state.bobaShopReducer);
-  console.log(bobaShopState, "---THIS IS BOBASHOPSTATE---");
   // const bobaShopState = useSelector(state => state.bobaShop);
 
-  console.log(bobaShopId, 'THIS IS BOBA SHOP ID from BobaShop.js-------------------');
+  console.log(bobaShopId, 'THIS IS BOBA SHOP ID -------------------');
 
   const reviews = useSelector(state => state.reviewReducer);
   const bobaShopReviews = Object.values(reviews)
@@ -82,9 +78,6 @@ function BobaShop() {
             </li>
           </div>
         }
-        <NavLink to={`/bobaShops/${bobaShop.id}/edit`}>
-          <button>Edit Boba Shop Details</button>
-        </NavLink>
         <NavLink to={`/bobaShops/${bobaShop.id}/delete`}>
           <button>Delete Boba Shop</button>
         </NavLink>
