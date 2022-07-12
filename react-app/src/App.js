@@ -14,6 +14,7 @@ import EditBobaShopForm from './components/EditBobaShopForm';
 import EditReviewForm from './components/EditReviewForm';
 import DeleteBobaShopConfirmationPage from './components/DeleteBobaShopConfirmationPage';
 import DeleteReviewConfirmationPage from './components/DeleteReviewConfirmationPage';
+import SplashPage from './components/SplashPage';
 import { authenticate } from './store/session';
 
 function App() {
@@ -37,6 +38,7 @@ function App() {
       <Switch>
         <Route path='/' exact={true} >
           <h1>My Home Page</h1>
+          <SplashPage />
         </Route>
         <Route path='/login' exact={true}>
           <LoginForm />
