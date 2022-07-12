@@ -84,6 +84,12 @@ const LoginForm = () => {
         </div>
         <br />
         <button className='submit-button' type='submit'>Login</button>
+        <div className='new-to-besteas-signup'>
+          <h5>New to besTEAs?</h5>
+          <NavLink to='/sign-up'>
+            <h5 className='sign-up-text'>Sign Up</h5>
+          </NavLink>
+        </div>
       </form>
     </div>
   );

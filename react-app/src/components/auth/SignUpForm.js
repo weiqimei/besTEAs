@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
-import { Redirect } from 'react-router-dom';
+import { Redirect, NavLink } from 'react-router-dom';
 import { signUp } from '../../store/session';
 import { useHistory } from 'react-router-dom';
 
@@ -58,67 +58,89 @@ const SignUpForm = () => {
   }
 
   return (
-    <form onSubmit={onSignUp}>
-      <div>
-        {errors.map((error, ind) => (
-          <div key={ind}>{error}</div>
-        ))}
-      </div>
-      <div>
-        <label>First Name</label>
-        <input 
-        type="text" 
-        name = "first_name"
-        value={first_name} 
-        onChange={updateFirstName} />
-      </div>
-      <div>
-        <label>Last Name</label>
-        <input 
-        type="text" 
-        name = "last_name"
-        value={last_name} 
-        onChange={updateLastName} />
-      </div>
-      <div>
-        <label>User Name</label>
-        <input
-          type='text'
-          name='username'
-          onChange={updateUsername}
-          value={username}
-        ></input>
-      </div>
-      <div>
-        <label>Email</label>
-        <input
-          type='text'
-          name='email'
-          onChange={updateEmail}
-          value={email}
-        ></input>
-      </div>
-      <div>
-        <label>Password</label>
-        <input
-          type='password'
-          name='password'
-          onChange={updatePassword}
-          value={password}
-        ></input>
-      </div>
-      <div>
-        <label>Repeat Password</label>
-        <input
-          type='password'
-          name='repeat_password'
-          onChange={updateRepeatPassword}
-          value={repeatPassword}
-          required={true}
-        ></input>
-      </div>
-      <button type='submit'>Sign Up</button>
-    </form>
+    <div className='form-div'>
+      <form onSubmit={onSignUp}>
+        <h1 className='log-in-to-beateas'>Sign Up for besTEAs</h1>
+        <div className='new-to-besteas-signup'>
+          <h3>Connect with great local businesses</h3>
+        </div>
+        <p className='terms-of-service'>
+          By continuing, you agree to besTEAs’ Terms of Service
+          and acknowledge besTEAs’ Privacy Policy.
+        </p>
+        <div className='demo-button-div'>
+          <button className='demo-user-button'>Demo User</button>
+        </div>
+        <div className='or'>
+          ---------------------------------------------------- OR ----------------------------------------------------
+        </div>
+        <div>
+          {errors.map((error, ind) => (
+            <div key={ind}>{error}</div>
+          ))}
+        </div>
+        <div>
+          <input className='input-field'
+            type="text"
+            name="first_name"
+            value={first_name}
+            onChange={updateFirstName} />
+        </div>
+        <br />
+        <div>
+          <input className='input-field'
+            type="text"
+            name="last_name"
+            value={last_name}
+            onChange={updateLastName} />
+        </div>
+        <br />
+        <div>
+          <input className='input-field'
+            type='text'
+            name='username'
+            onChange={updateUsername}
+            value={username}
+          ></input>
+        </div>
+        <br />
+        <div>
+          <input className='input-field'
+            type='text'
+            name='email'
+            onChange={updateEmail}
+            value={email}
+          ></input>
+        </div>
+        <br />
+        <div>
+          <input className='input-field'
+            type='password'
+            name='password'
+            onChange={updatePassword}
+            value={password}
+          ></input>
+        </div>
+        <br />
+        <div>
+          <input className='input-field'
+            type='password'
+            name='repeat_password'
+            onChange={updateRepeatPassword}
+            value={repeatPassword}
+            required={true}
+          ></input>
+        </div>
+        <br />
+        <button className='submit-button' type='submit'>Sign Up</button>
+        <div className='new-to-besteas-signup'>
+          <h5>Already on besTEAs?</h5>
+          <NavLink to='/login'>
+            <h5 className='sign-up-text'>Log in</h5>
+          </NavLink>
+        </div>
+      </form>
+    </div>
   );
 };
 
