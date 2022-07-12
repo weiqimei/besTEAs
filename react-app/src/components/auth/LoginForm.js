@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { Redirect } from 'react-router-dom';
+import { Redirect, NavLink } from 'react-router-dom';
 import { useHistory } from 'react-router-dom';
 import { login } from '../../store/session';
+import './LoginForm.css';
 
 const LoginForm = () => {
   const [errors, setErrors] = useState([]);
@@ -36,34 +37,55 @@ const LoginForm = () => {
   }
 
   return (
-    <form onSubmit={onLogin}>
-      <div>
-        {errors.map((error, ind) => (
-          <div key={ind}>{error}</div>
-        ))}
-      </div>
-      <div>
-        <label htmlFor='email'>Email</label>
-        <input
-          name='email'
-          type='text'
-          placeholder='Email'
-          value={email}
-          onChange={updateEmail}
-        />
-      </div>
-      <div>
-        <label htmlFor='password'>Password</label>
-        <input
-          name='password'
-          type='password'
-          placeholder='Password'
-          value={password}
-          onChange={updatePassword}
-        />
-        <button type='submit'>Login</button>
-      </div>
-    </form>
+    <div className='form-div'>
+      <form onSubmit={onLogin} className='login-form'>
+        <h1 className='log-in-to-beateas'>Log in to besTEAs</h1>
+        <div className='new-to-besteas-signup'>
+          <h3>New to besTEAs?</h3>
+          <NavLink to='/sign-up'>
+            <h4 className='sign-up-text'>Sign Up</h4>
+          </NavLink>
+        </div>
+        <p className='terms-of-service'>
+          By logging in, you agree to besTEAs’ Terms of Service
+          and Privacy Policy.
+        </p>
+        <div className='demo-button-div'>
+          <button className='demo-user-button'>Demo User</button>
+        </div>
+        <div className='or'>
+          --------------------------------------- OR ---------------------------------------
+        </div>
+        <div>
+          {errors.map((error, ind) => (
+            <div key={ind}>{error}</div>
+          ))}
+        </div>
+        <div >
+          <label htmlFor='email'></label>
+          <input className='input-field'
+            name='email'
+            type='text'
+            placeholder='Email'
+            value={email}
+            onChange={updateEmail}
+          />
+        </div>
+        <br />
+        <div >
+          <label htmlFor='password'></label>
+          <input className='input-field'
+            name='password'
+            type='password'
+            placeholder='Password'
+            value={password}
+            onChange={updatePassword}
+          />
+        </div>
+        <br />
+        <button className='submit-button' type='submit'>Login</button>
+      </form>
+    </div>
   );
 };
 
