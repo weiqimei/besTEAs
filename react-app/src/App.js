@@ -37,7 +37,7 @@ function App() {
       <NavBar />
       <Switch>
         <Route path='/' exact={true} >
-          <h1>My Home Page</h1>
+          {/* <h1>My Home Page</h1> */}
           <SplashPage />
         </Route>
         <Route path='/login' exact={true}>

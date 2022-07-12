@@ -39,33 +39,14 @@ const SignUpForm = () => {
 
 
   const onSignUp = async (e) => {
-    // const err = [];
-    // e.preventDefault();
-    // const formData = new FormData();
-    // formData.append('first_name', first_name);
-    // formData.append('last_name', last_name);
-    // formData.append('username', username);
-    // formData.append('email', email);
-    // formData.append('password', password);
 
-    // const data = await dispatch(signUp(formData));
-
-    // //! if data leak persists, check here
-    // if (data && data.includes('username: Username is already in use.')) {
-    //   err.push('Username: Username is already in use.')
-    // }
-
-    // if (data && data.includes('email: Email address is already in use.')) {
-    //   err.push('Email: Email is already in use')
-    // }
-    // setErrors(err)
     e.preventDefault();
     if (password === repeatPassword) {
       const data = await dispatch(signUp(first_name, last_name, username, email, password));
       if (data) {
         setErrors(data)
       }
-      // history.push('/bobaShops');
+      history.push('/bobaShops');
     }
   };
 
