@@ -21,7 +21,7 @@ const LoginForm = () => {
     if (data) {
       setErrors(data);
     }
-    history.push('/bobaShops');
+    // history.push('/bobaShops');
   };
 
   const updateEmail = (e) => {
@@ -51,7 +51,7 @@ const LoginForm = () => {
           and Privacy Policy.
         </p>
         <div className='demo-button-div'>
-          <button className='demo-user-button'>Demo User</button>
+          <button className='demo-user-button'>Continue as Demo User</button>
         </div>
         <div className='or'>
           --------------------------------------- OR ---------------------------------------

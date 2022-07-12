@@ -108,3 +108,17 @@
   width: 100%;
   box-sizing: border-box;
 }
+
+/* .errors-div {
+  display: flex;
+  justify-content: center;
+} */
+
+.errors {
+  display: flex;
+  justify-content: center;
+  color: #d32323;
+  font-size: 13px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
