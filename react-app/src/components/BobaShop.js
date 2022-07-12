@@ -13,20 +13,44 @@ function BobaShop() {
   const { bobaShopId } = useParams();
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    dispatch(getBobaShop(bobaShopId));
-  }, [dispatch, bobaShopId]);
+  const bobaShopsObject = useSelector(state => state.bobaShopReducer);
+  console.log(bobaShopsObject, '----This is bobaShopsObject from BobaShop.js');
+  const bobaShopArray = Object.values(bobaShopsObject)
+  console.log(bobaShopArray, '----This is bobaShopArray from BobaShop.js');
+
+  console.log(bobaShopId, '----This is bobaShopId from BobaShop.js');
+
+  const targetBobaShop = bobaShopArray.filter(bobaShop => bobaShop.id === parseInt(bobaShopId));
+  const target = Object.values(targetBobaShop)
+  const targetBobaShopOne = target[0];
+  console.log(targetBobaShopOne, '----This is targetBobaShop from BobaShop.js');
+  if (targetBobaShopOne) {
+    console.log(targetBobaShopOne.user_id, '----This is targetBobaShop || from BobaShop.js');
+  }
+
+  const sessionUser = useSelector((state) => state.session.user)
+  console.log(sessionUser, '----This is sessionUser from BobaShop.js');
+  console.log(sessionUser.id, '----This is sessionUser id from BobaShop.js');
+
+  // const user = useSelector(state => state.session.user);
+  const user_id = sessionUser.id;
+
+  console.log(user_id, '----This is user_id from BobaShop.js');
+
+  // useEffect(() => {
+  // }, [dispatch, bobaShopId]);
 
   // const bobaShopState = useSelector(state => state.bobaShop);
 
-  console.log(bobaShopId, 'THIS IS BOBA SHOP ID -------------------');
+  // console.log(bobaShopId, 'THIS IS BOBA SHOP ID -------------------');
 
   const reviews = useSelector(state => state.reviewReducer);
   const bobaShopReviews = Object.values(reviews)
 
   // might need to change
   useEffect(() => {
-    dispatch(getAllBobaShops());
+    dispatch(getBobaShop(bobaShopId));
+    // dispatch(getAllBobaShops());
     dispatch(getAllReviews(bobaShopId));
   }, [dispatch, bobaShopId]);
 
@@ -78,12 +102,16 @@ function BobaShop() {
             </li>
           </div>
         }
-        <NavLink to={`/bobaShops/${bobaShop.id}/edit`}>
-          <button>Edit Boba Shop Details</button>
-        </NavLink>
-        <NavLink to={`/bobaShops/${bobaShop.id}/delete`}>
-          <button>Delete Boba Shop</button>
-        </NavLink>
+        {targetBobaShopOne &&
+          sessionUser?.id === targetBobaShopOne.user_id && <NavLink to={`/bobaShops/${bobaShop.id}/edit`}>
+            <button>Edit Boba Shop Details</button>
+          </NavLink>
+        }
+        {targetBobaShopOne &&
+          sessionUser?.id === targetBobaShopOne.user_id && <NavLink to={`/bobaShops/${bobaShop.id}/delete`}>
+            <button>Delete Boba Shop</button>
+          </NavLink>
+        }
       </ul>
       <div>
         <Reviews reviews={bobaShopReviews} />
@@ -96,3 +124,15 @@ function BobaShop() {
 }
 
 export default BobaShop;
+
+
+// {
+//   sessionUser?.id === OneBobaShop[0].user_id && <NavLink to={`/bobaShops/${bobaShop.id}/edit`}>
+//     <button>Edit Boba Shop Details</button>
+//   </NavLink>
+// }
+// {
+//   sessionUser?.id === OneBobaShop[0].user_id && <NavLink to={`/bobaShops/${bobaShop.id}/delete`}>
+//     <button>Delete Boba Shop</button>
+//   </NavLink>
+// }
