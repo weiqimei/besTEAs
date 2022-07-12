@@ -14,16 +14,16 @@ function BobaShop() {
   const dispatch = useDispatch();
 
   const bobaShopsObject = useSelector(state => state.bobaShopReducer);
-  console.log(bobaShopsObject, '----This is bobaShopsObject from BobaShop.js');
+  // console.log(bobaShopsObject, '----This is bobaShopsObject from BobaShop.js');
   const bobaShopArray = Object.values(bobaShopsObject)
-  console.log(bobaShopArray, '----This is bobaShopArray from BobaShop.js');
+  // console.log(bobaShopArray, '----This is bobaShopArray from BobaShop.js');
 
-  console.log(bobaShopId, '----This is bobaShopId from BobaShop.js');
+  // console.log(bobaShopId, '----This is bobaShopId from BobaShop.js');
 
   const targetBobaShop = bobaShopArray.filter(bobaShop => bobaShop.id === parseInt(bobaShopId));
   const target = Object.values(targetBobaShop)
   const targetBobaShopOne = target[0];
-  console.log(targetBobaShopOne, '----This is targetBobaShop from BobaShop.js');
+  // console.log(targetBobaShopOne, '----This is targetBobaShop from BobaShop.js');
   if (targetBobaShopOne) {
     console.log(targetBobaShopOne.user_id, '----This is targetBobaShop || from BobaShop.js');
   }
