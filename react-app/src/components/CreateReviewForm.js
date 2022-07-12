@@ -7,7 +7,7 @@ import { getAllReviews, addReview } from '../store/reviews';
 const CreateReviewForm = ({ bobaShopId }) => {
   const user = useSelector(state => state.session.user);
   const user_id = user.id;
-  console.log(user_id, "THIS IS USER ID from CreateReviewForm.js---------");
+  // console.log(user_id, "THIS IS USER ID from CreateReviewForm.js---------");
 
   const dispatch = useDispatch();
   const history = useHistory();
@@ -27,7 +27,7 @@ const CreateReviewForm = ({ bobaShopId }) => {
   }, [dispatch, bobaShopId]);
 
 
-  console.log(bobaShopId, "THIS IS BOBASHOP ID from CreateReviewForm.js---------");
+  // console.log(bobaShopId, "THIS IS BOBASHOP ID from CreateReviewForm.js---------");
 
 
   const handleSubmit = async (e) => {
