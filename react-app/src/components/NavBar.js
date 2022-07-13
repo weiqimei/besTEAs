@@ -18,6 +18,11 @@ const NavBar = () => {
             </NavLink>
           </div>
           <div className='each-nav-element'>
+            <NavLink to='/bobaShops/new'>
+              Add Boba Shop
+            </NavLink>
+          </div>
+          <div className='each-nav-element'>
             <NavLink to='/login' exact={true} activeClassName='active'>
               Login
             </NavLink>
@@ -29,18 +34,23 @@ const NavBar = () => {
           </div>
         </ul>
       </nav> :
-      <nav>
-        <ul className='navbar'>
-        <div className='each-nav-element'>
-          <NavLink to='/bobaShops' exact={true} activeClassName='active'>
-            Boba Shops
-          </NavLink>
-        </div>
-        <div className='each-nav-element'>
-          <LogoutButton />
-        </div>
-        </ul>
-      </nav>}
+        <nav>
+          <ul className='navbar'>
+            <div className='each-nav-element'>
+              <NavLink to='/bobaShops/new'>
+                Add Boba Shop
+              </NavLink>
+            </div>
+            <div className='each-nav-element'>
+              <NavLink to='/bobaShops' exact={true} activeClassName='active'>
+                Boba Shops
+              </NavLink>
+            </div>
+            <div className='each-nav-element'>
+              <LogoutButton />
+            </div>
+          </ul>
+        </nav>}
     </>
   );
 }

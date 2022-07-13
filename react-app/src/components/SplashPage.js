@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import './BobaShopList.css';
+import './SplashPage.css';
 
-function BobaShopList() {
+function SplashPage() {
   const [bobaShops, setBobaShops] = useState([]);
 
   useEffect(() => {
@@ -45,13 +46,13 @@ function BobaShopList() {
 
   return (
     <>
+      {/* <NavLink to='/bobaShops/new'>
+        <button className='create-new-boba-shop-button'>create new boba shop</button>
+      </NavLink> */}
       <h1 className='title-boba-shop-page'>Browse Boba Shops </h1>
       <ul>{bobaShopComponents}</ul>
-      {/* <NavLink to='/bobaShops/new'>
-        <button>create new boba shop</button>
-      </NavLink> */}
     </>
   )
 }
 
-export default BobaShopList;
+export default SplashPage;

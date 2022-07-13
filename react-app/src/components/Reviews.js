@@ -10,6 +10,16 @@ function Reviews({ reviews }) {
 
   // console.log(typeof bobaShopId, "THIS IS BOBASHOPID from Reviews.js");
 
+  const sessionUser = useSelector((state) => state.session.user)
+  console.log(sessionUser, '----This is sessionUser from Reviews.js');
+
+  const reviewsObject = useSelector(state => state.reviewReducer);
+  const bobaShopReviews = Object.values(reviewsObject)
+  // const targetReview = bobaShopReviews.filter(review => review.user_id === sessionUser.id);
+  // console.log(reviewsObject, '----This is reviewsObject from Reviews.js');
+  // console.log(bobaShopReviews, '----This is bobaShopReviews from Reviews.js');
+  // console.log(targetReview, '----This is targetReview from Reviews.js');
+
   useEffect(() => {
     dispatch(getBobaShop(bobaShopId));
   }, [dispatch, bobaShopId]);
@@ -23,13 +33,16 @@ function Reviews({ reviews }) {
             <div>{review.content}</div>
             <div className='boba-image' style={{ backgroundImage: `url(${review.picture})` }}></div>
             <div>Date Reviewed: {review.date}</div>
-            {/* add the other review columns */}
-            <NavLink to={`/bobaShops/${bobaShopId}/${review.id}/edit`}>
-              <button>Edit Review</button>
-            </NavLink>
-            <NavLink to={`/bobaShops/${bobaShopId}/${review.id}/delete`}>
-              <button>Delete Review</button>
-            </NavLink>
+            {
+              sessionUser?.id === review.user_id &&
+              <NavLink to={`/bobaShops/${bobaShopId}/${review.id}/edit`}>
+                <button>Edit Review</button>
+              </NavLink>}
+            {
+              sessionUser?.id === review.user_id &&
+              <NavLink to={`/bobaShops/${bobaShopId}/${review.id}/delete`}>
+                <button>Delete Review</button>
+              </NavLink>}
           </li>
         })}
       </ul>
