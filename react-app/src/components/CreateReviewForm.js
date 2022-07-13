@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { getAllReviews, addReview } from '../store/reviews';
-
+import './CreateReviewForm.css';
 
 const CreateReviewForm = ({ bobaShopId }) => {
   const user = useSelector(state => state.session.user);
@@ -57,8 +57,8 @@ const CreateReviewForm = ({ bobaShopId }) => {
 
   return (
     <>
-      <h2 className='log-in-to-beateas'>Add a Review</h2>
-      <div className='form-div'>
+      <h2 className='add-review-title'>Add a Review</h2>
+      <div className=''>
       <form onSubmit={handleSubmit}>
         <div>
           {errors.length > 0 && errors.map((err, i) => (
@@ -67,7 +67,7 @@ const CreateReviewForm = ({ bobaShopId }) => {
         </div>
         <br />
         <div>
-          <input className='add-boba-shop-input-field'
+          <input className='input-field'
             type='text'
             placeholder='content'
             value={content}
@@ -76,7 +76,7 @@ const CreateReviewForm = ({ bobaShopId }) => {
         </div>
         <br />
         <div>
-          <input className='add-boba-shop-input-field'
+            <input className='input-field'
             type='text'
             placeholder='picture'
             value={picture}
@@ -90,7 +90,7 @@ const CreateReviewForm = ({ bobaShopId }) => {
           value={date}
           onChange={updateDate}
         /> */}
-        <button className='submit-button' type="submit" disabled={!!errors.length}>Submit Review</button>
+          <button className='submit-button' type="submit" disabled={!!errors.length}>Submit Review</button>
       </form>
       </div>
     </>
