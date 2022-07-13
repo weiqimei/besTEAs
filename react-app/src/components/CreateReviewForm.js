@@ -69,7 +69,7 @@ const CreateReviewForm = ({ bobaShopId }) => {
         <div>
           <input className='input-field'
             type='text'
-            placeholder='content'
+            placeholder='I love this boba shop!'
             value={content}
             onChange={updateContent}
           />
@@ -78,7 +78,7 @@ const CreateReviewForm = ({ bobaShopId }) => {
         <div>
             <input className='input-field'
             type='text'
-            placeholder='picture'
+            placeholder='Show off the boba you ordered!'
             value={picture}
             onChange={updatePicture}
           />
