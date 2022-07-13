@@ -78,7 +78,7 @@ const CreateBobaShopForm = () => {
   return (
     <>
       <h1 className='log-in-to-beateas'>Add a Boba Shop</h1>
-      <br />
+      {/* <br /> */}
       <form onSubmit={handleSubmit} className='add-boba-shop-form'>
         <div>
           {errors.length > 0 && errors.map((err, i) => (
