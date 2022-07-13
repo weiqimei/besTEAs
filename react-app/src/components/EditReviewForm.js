@@ -18,13 +18,14 @@ const EditReviewForm = () => {
 
   const reviewArray = Object.values(useSelector(state => state.reviewReducer))
   console.log(reviewArray, "THIS IS REVIEW Array---------");
-  
+
   const review = reviewArray.filter(review => review.id === parseInt(reviewId));
-  
+
   console.log(review, "----THIS IS REVIEW---------");
 
-  const [content, setContent] = useState(review.content);
-  const [picture, setPicture] = useState(review.picture);
+  const [content, setContent] = useState(review[0].content);
+  const [picture, setPicture] = useState(review[0].picture);
+  const [errors, setErrors] = useState([]);
   const [date, setDate] = useState(review.date);
 
   const updateContent = (e) => setContent(e.target.value);
@@ -32,7 +33,14 @@ const EditReviewForm = () => {
   // const updateDate = (e) => setDate(e.target.value);
 
   // errors handling
-  useEffect(() => { }, [content, picture]);
+  useEffect(() => {
+    const err = [];
+    if (!content) err.push('Please enter a review');
+    if (content.length > 255) err.push('Review must be less than 255 characters');
+    if (!picture) err.push('Please add a picture');
+
+    setErrors(err);
+  }, [content, picture]);
 
   useEffect(() => {
     dispatch(getReview(reviewId));
@@ -55,34 +63,50 @@ const EditReviewForm = () => {
 
     let editedReview = await dispatch(editReview(reviewId, newReview));
     if (editedReview) {
-      history.push(`/bobaShops`);
+      history.push(`/bobaShops/${bobaShopId}`);
     }
   }
 
   return (
-    <form onSubmit={handleSubmit}>
-      <div>
-        <input
-          type='text'
-          placeholder='content'
-          value={content}
-          onChange={updateContent}
-        />
-        <input
-          type='text'
-          placeholder='picture'
-          value={picture}
-          onChange={updatePicture}
-        />
+    <>
+      <h2 className='log-in-to-beateas'>Edit Your Review</h2>
+      <div className='form-div'>
+
+      <form onSubmit={handleSubmit}>
+        <div>
+          {errors.length > 0 && errors.map((err, i) => (
+            <li className='errors' key={i}>{err}</li>
+          ))}
+        </div>
+        <div>
+          <input className='add-boba-shop-input-field'
+            type='text'
+            placeholder='content'
+            value={content}
+            onChange={updateContent}
+          />
+        </div>
+        <br />
+
+        <div>
+          <input className='add-boba-shop-input-field'
+            type='text'
+            placeholder='picture'
+            value={picture}
+            onChange={updatePicture}
+          />
+        </div>
         {/* <input
           type='text'
           placeholder='date'
           value={date}
           onChange={updateDate}
         /> */}
+        <br />
+        <button className='submit-button' type='submit' disabled={!!errors.length}>Update Review</button>
+      </form>
       </div>
-      <button type='submit'>Update Review</button>
-    </form>
+    </>
   );
 }
 
