@@ -74,50 +74,68 @@ function BobaShop() {
 
   return (
     <>
-      <ul>
-        <li>
-          <strong>Boba Shop Id</strong> {bobaShopId}
-        </li>
-        <li>
-          <strong>Name</strong> {bobaShop.name}
-        </li>
-        <li>
-          <strong>Address</strong> {bobaShop.address} {bobaShop.city} {bobaShop.state} {bobaShop.zipcode}
-        </li>
-        <li>
-          <strong>Phone Number</strong> {bobaShop.phone}
-        </li>
-        <li>
-          <strong>Hours</strong> {bobaShop.hours}
-        </li>
+      <div>
         {(bobaShop?.image) &&
           <div>
-            <li>
+            {/* <li>
               <strong>Image</strong>
-            </li>
-            <li>
-              <div className='boba-image' style={{ backgroundImage: `url(${bobaShop.image})` }}>
-                {/* {bobaShop.image} */}
+            </li> */}
+
+            <div className='boba-image' style={{ backgroundImage: `url(${bobaShop.image})` }}>
+              {/* {bobaShop.image} */}
+              <div className='boba-shop-info'>
+                <div className='name-of-boba-shop'>
+                  <strong>{bobaShop.name}</strong>
+                </div>
+                <div className='open-time'>
+                  <strong>Open: </strong> {bobaShop.hours}
+                </div>
               </div>
-            </li>
+              <div className='edit-delete-boba-shop'>
+                <div>
+                  {targetBobaShopOne &&
+                    sessionUser?.id === targetBobaShopOne.user_id && <NavLink to={`/bobaShops/${bobaShop.id}/edit`}>
+                      <button className='button'>Edit Boba Shop</button>
+                    </NavLink>
+                  }
+                </div>
+                <div>
+                  {targetBobaShopOne &&
+                    sessionUser?.id === targetBobaShopOne.user_id && <NavLink to={`/bobaShops/${bobaShop.id}/delete`}>
+                      <button className='button'>Delete Boba Shop</button>
+                    </NavLink>
+                  }
+                </div>
+              </div>
+            </div>
+
+            <div className='boba-shop-bottom'>
+              <div className='boba-shop-right'>
+                <div className='bottom-right'>
+                  <div className='address'>
+                    <div className='top-text'><strong>Address</strong> </div>
+                    <div className='text'>{bobaShop.address} {bobaShop.city} {bobaShop.state} {bobaShop.zipcode}</div>
+        
+                  </div>
+                  <div className='phone'>
+                    <div className='top-text'><strong>Phone Number</strong></div>
+                    <div className='text'>{bobaShop.phone}</div>
+
+                     
+                  </div>
+                  <div>
+                    <CreateReviewForm bobaShopId={bobaShopId} />
+                  </div>
+                </div>
+              </div>
+              <div className='boba-shop-left'>
+                <div>
+                  <Reviews reviews={bobaShopReviews} />
+                </div>
+              </div>
+            </div>
           </div>
         }
-        {targetBobaShopOne &&
-          sessionUser?.id === targetBobaShopOne.user_id && <NavLink to={`/bobaShops/${bobaShop.id}/edit`}>
-            <button>Edit Boba Shop Details</button>
-          </NavLink>
-        }
-        {targetBobaShopOne &&
-          sessionUser?.id === targetBobaShopOne.user_id && <NavLink to={`/bobaShops/${bobaShop.id}/delete`}>
-            <button>Delete Boba Shop</button>
-          </NavLink>
-        }
-      </ul>
-      <div>
-        <Reviews reviews={bobaShopReviews} />
-      </div>
-      <div>
-        <CreateReviewForm bobaShopId={bobaShopId} />
       </div>
     </>
   );

@@ -30,7 +30,7 @@ const SignUpForm = () => {
     if (email.length <= 5 || !email.includes('@') || !email.includes('.')) err.push('You must enter a valid email');
     if (password.length <= 6) err.push('Password must be at least 5 characters');
     if (!repeatPassword) err.push('You must confirm your password');
-    if (password != repeatPassword) err.push('Passwords do not match');
+    if (password !== repeatPassword) err.push('Passwords do not match');
 
     setErrors(err);
 
@@ -46,7 +46,7 @@ const SignUpForm = () => {
       if (data) {
         setErrors(data)
       }
-      history.push('/bobaShops');
+      // history.push('/bobaShops');
     }
   };
 

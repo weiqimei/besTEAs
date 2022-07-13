@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { getAllReviews, addReview } from '../store/reviews';
-
+import './CreateReviewForm.css';
 
 const CreateReviewForm = ({ bobaShopId }) => {
   const user = useSelector(state => state.session.user);
@@ -13,14 +13,24 @@ const CreateReviewForm = ({ bobaShopId }) => {
   const history = useHistory();
   const [content, setContent] = useState('');
   const [picture, setPicture] = useState('');
+  const [errors, setErrors] = useState([]);
+
   // const [date, setDate] = useState('');
 
   const updateContent = (e) => setContent(e.target.value);
   const updatePicture = (e) => setPicture(e.target.value);
+
   // const updateDate = (e) => setDate(e.target.value);
 
   // errors handling
-  useEffect(() => { }, [content, picture]);
+  useEffect(() => {
+    const err = [];
+    if (!content) err.push('Please enter a review');
+    if (content.length > 255) err.push('Review must be less than 255 characters');
+    if (!picture) err.push('Please add a picture');
+
+    setErrors(err);
+  }, [content, picture]);
 
   useEffect(() => {
     dispatch(getAllReviews(bobaShopId));
@@ -46,29 +56,44 @@ const CreateReviewForm = ({ bobaShopId }) => {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
-      <div>
-        <input
-          type='text'
-          placeholder='content'
-          value={content}
-          onChange={updateContent}
-        />
-        <input
-          type='text'
-          placeholder='picture'
-          value={picture}
-          onChange={updatePicture}
-        />
+    <>
+      <h2 className='add-review-title'>Add a Review</h2>
+      <div className=''>
+      <form onSubmit={handleSubmit}>
+        <div>
+          {errors.length > 0 && errors.map((err, i) => (
+            <li className='errors' key={i}>{err}</li>
+          ))}
+        </div>
+        <br />
+        <div>
+          <input className='input-field'
+            type='text'
+            placeholder='I love this boba shop!'
+            value={content}
+            onChange={updateContent}
+          />
+        </div>
+        <br />
+        <div>
+            <input className='input-field'
+            type='text'
+            placeholder='Show off the boba you ordered!'
+            value={picture}
+            onChange={updatePicture}
+          />
+        </div>
+        <br />
         {/* <input
           type='text'
           placeholder='date'
           value={date}
           onChange={updateDate}
         /> */}
-        <button type="submit">Submit Review</button>
+          <button className='submit-button' type="submit" disabled={!!errors.length}>Submit Review</button>
+      </form>
       </div>
-    </form>
+    </>
   )
 }
 

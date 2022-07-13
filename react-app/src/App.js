@@ -70,6 +70,9 @@ function App() {
         <ProtectedRoute path='/bobaShops/:bobaShopId/:reviewId/edit' exact={true} >
           <EditReviewForm />
         </ProtectedRoute>
+        
+        {/* ADD 404 ERROR PAGE */}
+
         {/* <ProtectedRoute path='/users/:user_id' exact={true} >
           <User />
         </ProtectedRoute> */}
