@@ -74,34 +74,36 @@ function BobaShop() {
 
   return (
     <>
-      <ul>
-        <li>
-          <strong>Boba Shop Id</strong> {bobaShopId}
-        </li>
-        <li>
-          <strong>Name</strong> {bobaShop.name}
-        </li>
-        <li>
-          <strong>Address</strong> {bobaShop.address} {bobaShop.city} {bobaShop.state} {bobaShop.zipcode}
-        </li>
-        <li>
-          <strong>Phone Number</strong> {bobaShop.phone}
-        </li>
-        <li>
-          <strong>Hours</strong> {bobaShop.hours}
-        </li>
+      <div>
         {(bobaShop?.image) &&
           <div>
-            <li>
+            {/* <li>
               <strong>Image</strong>
-            </li>
-            <li>
+            </li> */}
+            <div>
               <div className='boba-image' style={{ backgroundImage: `url(${bobaShop.image})` }}>
                 {/* {bobaShop.image} */}
               </div>
-            </li>
+            </div>
           </div>
         }
+        <div className='boba-shop-info'>
+          {/* <div>
+            <strong>Boba Shop Id</strong> {bobaShopId}
+          </div> */}
+          <div>
+            <strong>{bobaShop.name}</strong> 
+          </div>
+          <div>
+            <strong>Open: </strong> {bobaShop.hours}
+          </div>
+        </div>
+          <div>
+            <strong>Address</strong> {bobaShop.address} {bobaShop.city} {bobaShop.state} {bobaShop.zipcode}
+          </div>
+          <div>
+            <strong>Phone Number</strong> {bobaShop.phone}
+          </div>
         {targetBobaShopOne &&
           sessionUser?.id === targetBobaShopOne.user_id && <NavLink to={`/bobaShops/${bobaShop.id}/edit`}>
             <button>Edit Boba Shop Details</button>
@@ -112,7 +114,7 @@ function BobaShop() {
             <button>Delete Boba Shop</button>
           </NavLink>
         }
-      </ul>
+      </div>
       <div>
         <Reviews reviews={bobaShopReviews} />
       </div>

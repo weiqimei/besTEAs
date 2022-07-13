@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams, NavLink } from "react-router-dom";
 import { getAllBobaShops, getBobaShop } from '../store/bobashops';
+import './Reviews.css';
 
 
 function Reviews({ reviews }) {
@@ -31,7 +32,7 @@ function Reviews({ reviews }) {
         {reviews.map((review) => {
           return <li key={review.id}>
             <div>{review.content}</div>
-            <div className='boba-image' style={{ backgroundImage: `url(${review.picture})` }}></div>
+            <div className='review-image' style={{ backgroundImage: `url(${review.picture})` }}></div>
             <div>Date Reviewed: {review.date}</div>
             {
               sessionUser?.id === review.user_id &&
