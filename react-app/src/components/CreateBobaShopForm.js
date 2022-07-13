@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory, useParams } from "react-router-dom";
 import { getAllBobaShops, createBobaShop } from "../store/bobashops";
+import './CreateBobaShopForm.css';
 
 const CreateBobaShopForm = () => {
   const user = useSelector(state => state.session.user);
@@ -56,75 +57,87 @@ const CreateBobaShopForm = () => {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
-      <div>
-        <input 
-          type="text"
-          placeholder="Name"
-          value={name}
-          onChange={updateName}
-        />
-      </div>
-      <div>
-        <input
-          type="text"
-          placeholder="Address"
-          value={address}
-          onChange={updateAddress}
-        />
-      </div>
-      <div>
-        <input
-          type="text"
-          placeholder="City"
-          value={city}
-          onChange={updateCity}
-        />
-      </div>
-      <div>
-        <input
-          type="text"
-          placeholder="State"
-          value={state}
-          onChange={updateState}
-        />
-      </div>
-      <div>
-        <input
-          type="text"
-          placeholder="Zipcode"
-          value={zipcode}
-          onChange={updateZipcode}
-        />
-      </div>
-      <div>
-        <input
-          type="text"
-          placeholder="Phone"
-          value={phone}
-          onChange={updatePhone}
-        />
-      </div>
-      <div>
-        <input
-          type="text"
-          placeholder="Hours"
-          value={hours}
-          onChange={updateHours}
-        />
-      </div>
-      <div>
-        <input
-          type="text"
-          placeholder="Image"
-          value={image}
-          onChange={updateImage}
-        />
-      </div>
-      <div>
-        <button type="submit">Post New Boba Shop</button>
-      </div>
-    </form>
+    <>
+      <h1 className='log-in-to-beateas'>Add a Boba Shop</h1>
+      <br />
+      <form onSubmit={handleSubmit} className='add-boba-shop-form'>
+        <div>
+          <input className='add-boba-shop-input-field'
+            type="text"
+            placeholder="Name"
+            value={name}
+            onChange={updateName}
+          />
+        </div>
+        <br />
+        <div>
+          <input className='add-boba-shop-input-field'
+            type="text"
+            placeholder="Address"
+            value={address}
+            onChange={updateAddress}
+          />
+        </div>
+        <br />
+        <div>
+          <input className='add-boba-shop-input-field'
+            type="text"
+            placeholder="City"
+            value={city}
+            onChange={updateCity}
+          />
+        </div>
+         <br />
+        <div>
+          <input className='add-boba-shop-input-field'
+            type="text"
+            placeholder="State"
+            value={state}
+            onChange={updateState}
+          />
+        </div>
+        <br />
+        <div>
+          <input className='add-boba-shop-input-field'
+            type="text"
+            placeholder="Zipcode"
+            value={zipcode}
+            onChange={updateZipcode}
+          />
+        </div>
+        <br />
+        <div>
+          <input className='add-boba-shop-input-field'
+            type="text"
+            placeholder="Phone"
+            value={phone}
+            onChange={updatePhone}
+          />
+        </div>
+        <br />
+        <div>
+          <input className='add-boba-shop-input-field'
+            type="text"
+            placeholder="Hours"
+            value={hours}
+            onChange={updateHours}
+          />
+        </div>
+        <br />
+        <div>
+          <input className='add-boba-shop-input-field'
+            type="text"
+            placeholder="Image"
+            value={image}
+            onChange={updateImage}
+          />
+        </div>
+        <br />
+        <div>
+          <button className='submit-button' type="submit">Post New Boba Shop</button>
+        </div>
+      </form>
+    </>
   )
 }
 

@@ -101,7 +101,6 @@ const SignUpForm = () => {
             <div className='errors' key={ind}>{error}</div>
           ))}
         </div>
-
         <div>
           <input className='input-field'
             type="text"

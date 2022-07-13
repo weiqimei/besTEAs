@@ -47,9 +47,9 @@ function BobaShopList() {
     <>
       <h1 className='title-boba-shop-page'>Browse Boba Shops </h1>
       <ul>{bobaShopComponents}</ul>
-      <NavLink to='/bobaShops/new'>
+      {/* <NavLink to='/bobaShops/new'>
         <button>create new boba shop</button>
-      </NavLink>
+      </NavLink> */}
     </>
   )
 }
