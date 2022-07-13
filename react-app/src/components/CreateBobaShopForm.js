@@ -80,11 +80,11 @@ const CreateBobaShopForm = () => {
       <h1 className='log-in-to-beateas'>Add a Boba Shop</h1>
       <br />
       <form onSubmit={handleSubmit} className='add-boba-shop-form'>
-        <ul>
+        <div>
           {errors.length > 0 && errors.map((err, i) => (
-            <li key={i}>{err}</li>
+            <li className='errors' key={i}>{err}</li>
           ))}
-        </ul>
+        </div>
         <div>
           <input className='add-boba-shop-input-field'
             type="text"
