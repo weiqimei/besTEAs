@@ -24,6 +24,18 @@ const LoginForm = () => {
     // history.push('/bobaShops');
   };
 
+  const demoLogin = async (e) => {
+    e.preventDefault();
+
+    const demoEmail = "demo@aa.io";
+    const demoPassword = "password";
+
+    setEmail(demoEmail);
+    setPassword(demoPassword);
+    dispatch(login("Demo@demo.com", "password"));
+  };
+
+
   const updateEmail = (e) => {
     setEmail(e.target.value);
   };
@@ -51,7 +63,7 @@ const LoginForm = () => {
           and Privacy Policy.
         </p>
         <div className='demo-button-div'>
-          <button className='demo-user-button'>Continue as Demo User</button>
+          <button onClick={demoLogin} className='demo-user-button'>Continue as Demo User</button>
         </div>
         <div className='or'>
           --------------------------------------- OR ---------------------------------------

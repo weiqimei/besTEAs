@@ -15,6 +15,7 @@ import EditReviewForm from './components/EditReviewForm';
 import DeleteBobaShopConfirmationPage from './components/DeleteBobaShopConfirmationPage';
 import DeleteReviewConfirmationPage from './components/DeleteReviewConfirmationPage';
 import SplashPage from './components/SplashPage';
+import About from './components/About';
 import { authenticate } from './store/session';
 
 function App() {
@@ -52,6 +53,9 @@ function App() {
         <Route path='/bobaShops' exact={true} >
           <BobaShopList />
         </Route>
+        <ProtectedRoute path='/about' exact={true} >
+          <About />
+        </ProtectedRoute>
         <ProtectedRoute path='/bobaShops/new' exact={true} >
           <CreateBobaShopForm />
         </ProtectedRoute>
