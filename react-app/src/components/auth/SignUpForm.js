@@ -22,11 +22,16 @@ const SignUpForm = () => {
     const err = [];
 
     if (!first_name) err.push('First name is required');
+    if (first_name.startsWith(' ')) err.push('First name cannot start with a space');
     if (!last_name) err.push('Last name is required');
+    if (last_name.startsWith(' ')) err.push('Last name cannot start with a space');
     if (first_name.length >= 25) err.push('First name must be less than 25 characters');
     if (last_name.length >= 25) err.push('Last name must be less than 25 characters');
     if (!username) err.push('Username is required');
+    if (username.startsWith(' ')) err.push('Username cannot start with a space');
     if (username.length >= 40) err.push('Username must be less than 40 characters');
+    if (!email) err.push('Email is required');
+    if (email.startsWith(' ')) err.push('Email cannot start with a space');
     if (email.length <= 5 || !email.includes('@') || !email.includes('.')) err.push('You must enter a valid email');
     if (password.length <= 6) err.push('Password must be at least 5 characters');
     if (!repeatPassword) err.push('You must confirm your password');

@@ -34,6 +34,8 @@ function Reviews({ reviews }) {
             <div>{review.content}</div>
             <div className='review-image' style={{ backgroundImage: `url(${review.picture})` }}></div>
             <div>Date Reviewed: {review.date}</div>
+            {/* <div>Review By: {sessionUser.first_name}</div> */}
+
             {
               sessionUser?.id === review.user_id &&
               <NavLink to={`/bobaShops/${bobaShopId}/${review.id}/edit`}>
