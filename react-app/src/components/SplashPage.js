@@ -49,7 +49,12 @@ function SplashPage() {
       {/* <NavLink to='/bobaShops/new'>
         <button className='create-new-boba-shop-button'>create new boba shop</button>
       </NavLink> */}
-      <h1 className='title-boba-shop-page'>Browse Boba Shops </h1>
+      <h1 className='title-boba-shop-page'>Welcome to besTEAs!</h1>
+      {/* <h3 className='log-in-to-explore'>
+        <NavLink to='/login'>Log In </NavLink>
+         to Explore Boba Shops</h3> */}
+      <h3 className='log-in-to-explore'>
+        Explore Boba Shops</h3>
       <ul>{bobaShopComponents}</ul>
     </>
   )

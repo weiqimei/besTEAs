@@ -42,6 +42,10 @@ const CreateReviewForm = ({ bobaShopId }) => {
 
   // console.log(bobaShopId, "THIS IS BOBASHOP ID from CreateReviewForm.js---------");
 
+  const reset = () => {
+    setContent("");
+    setPicture("");
+  }
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -55,6 +59,7 @@ const CreateReviewForm = ({ bobaShopId }) => {
     let review = await dispatch(addReview(bobaShopId, newReview, user_id));
     if (review) {
       history.push(`/bobaShops/${bobaShopId}`);
+      reset();
     }
   }
 

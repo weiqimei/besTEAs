@@ -125,10 +125,19 @@
 }
 
 .logout-button {
+  margin-top: 24px;
+  margin-bottom: 20px;
   border: 1px solid white;
   border-radius: 0.95em;
-  font-size: smaller;
   margin-right: 50px;
   background: none;
+  color: white;
+  padding: 9px;
+  font-size: 17px;
+}
+
+.logout-button>a {
+  margin: 10px;
+  text-decoration: none;
   color: white;
 }

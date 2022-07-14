@@ -78,6 +78,7 @@ const CreateBobaShopForm = () => {
     if (!hours) err.push('Hours is required');
     if (hours.startsWith(' ')) err.push('Hours cannot start with a space');
     if (hours.length >= 50) err.push('Hours must be less than 50 characters');  
+    if (!image) err.push('Image is required');
     if (image.startsWith(' ')) err.push('Image cannot start with a space');
     if (image && !image.startsWith('https://') && !image.endsWith('.jpg') && !image.endsWith('.png') && !image.endsWith('.jpeg')) err.push('Please provide a valid image URL');
     
@@ -194,6 +195,7 @@ const CreateBobaShopForm = () => {
             placeholder="Image (Optional)"
             value={image}
             onChange={updateImage}
+            required
           />
         </div>
         <br />

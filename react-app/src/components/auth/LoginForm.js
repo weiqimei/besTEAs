@@ -19,14 +19,15 @@ const LoginForm = () => {
     e.preventDefault();
     const data = await dispatch(login(email, password));
     if (data) {
-      setErrors(data);
+      return setErrors(data);
     }
-    // history.push('/bobaShops');
+    history.push('/bobaShops');
   };
 
   const demoLogin = async (e) => {
     e.preventDefault();
     dispatch(login("demo@aa.io", "password"));
+    // history.push('/bobaShops');
   };
 
 
@@ -39,7 +40,7 @@ const LoginForm = () => {
   };
 
   if (user) {
-    return <Redirect to='/' />;
+    return <Redirect to='/bobaShops' />;
   }
 
   return (
