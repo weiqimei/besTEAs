@@ -40,19 +40,26 @@ const EditBobaShopForm = () => {
   useEffect(() => {
     const err = [];
     if (!name) err.push('Name is required');
+    if (name.startsWith(' ')) err.push('Name cannot start with a space');
     if (name.length >= 25) err.push('Name must be less than 25 characters');
     if (!address) err.push('Address is required');
+    if (address.startsWith(' ')) err.push('Address cannot start with a space');
     if (address.length >= 100) err.push('Address must be less than 100 characters');
     if (!city) err.push('City is required');
+    if (city.startsWith(' ')) err.push('City cannot start with a space');
     if (city.length >= 25) err.push('City must be less than 25 characters');
     if (!state) err.push('State is required');
+    if (state.startsWith(' ')) err.push('State cannot start with a space');
     if (state.length >= 25) err.push('State must be less than 25 characters');
     if (!zipcode) err.push('Zipcode is required');
+    if (zipcode.startsWith(' ')) err.push('Zipcode cannot start with a space');
     if (zipcode.length >= 25) err.push('Zipcode must be less than 25 characters');
     if (!phone) err.push('Phone is required');
+    if (phone.startsWith(' ')) err.push('Phone cannot start with a space');
     if (phone.length >= 25) err.push('Phone must be less than 25 characters');
     if (!hours) err.push('Hours is required');
-    if (hours.length >= 50) err.push('Hours must be less than 50 characters');
+    if (hours.startsWith(' ')) err.push('Hours cannot start with a space');
+    if (hours.length >= 50) err.push('Hours must be less than 50 characters');  
 
     setErrors(err);
   }, [name, address, city, state, zipcode, phone, hours, image]);

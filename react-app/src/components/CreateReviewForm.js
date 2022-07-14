@@ -26,8 +26,10 @@ const CreateReviewForm = ({ bobaShopId }) => {
   useEffect(() => {
     const err = [];
     if (!content) err.push('Please enter a review');
+    if (content.startsWith(' ')) err.push('Review cannot start with a space');
     if (content.length > 255) err.push('Review must be less than 255 characters');
     if (!picture) err.push('Please add a picture');
+    if (picture.startsWith(' ')) err.push('Picture cannot start with a space');
 
     setErrors(err);
   }, [content, picture]);
@@ -69,7 +71,7 @@ const CreateReviewForm = ({ bobaShopId }) => {
         <div>
           <input className='input-field'
             type='text'
-            placeholder='I love this boba shop!'
+            placeholder='Review goes here (e.g. I love this boba shop!!)'
             value={content}
             onChange={updateContent}
           />
@@ -78,7 +80,7 @@ const CreateReviewForm = ({ bobaShopId }) => {
         <div>
             <input className='input-field'
             type='text'
-            placeholder='Show off the boba you ordered!'
+            placeholder='Provide an image URL to show off the boba you ordered!'
             value={picture}
             onChange={updatePicture}
           />

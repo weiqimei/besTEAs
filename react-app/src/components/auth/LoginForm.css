@@ -28,7 +28,7 @@
   justify-content: center;
 }
 
-.new-to-besteas-signup > a {
+.new-to-besteas-signup>a {
   text-decoration: none;
   color: #0073bb;
 }
@@ -107,6 +107,7 @@
   background-size: 15000px 15000px;
   width: 100%;
   box-sizing: border-box;
+  margin-bottom: 10px;
 }
 
 /* .errors-div {
@@ -121,4 +122,13 @@
   font-size: 13px;
   margin-top: 10px;
   margin-bottom: 10px;
+}
+
+.logout-button {
+  border: 1px solid white;
+  border-radius: 0.95em;
+  font-size: smaller;
+  margin-left: 5px;
+  background: none;
+  color: white;
 }

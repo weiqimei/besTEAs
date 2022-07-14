@@ -36,8 +36,10 @@ const EditReviewForm = () => {
   useEffect(() => {
     const err = [];
     if (!content) err.push('Please enter a review');
+    if (content.startsWith(' ')) err.push('Review cannot start with a space');
     if (content.length > 255) err.push('Review must be less than 255 characters');
     if (!picture) err.push('Please add a picture');
+    if (picture.startsWith(' ')) err.push('Picture cannot start with a space');
 
     setErrors(err);
   }, [content, picture]);

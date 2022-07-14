@@ -129,7 +129,7 @@ function BobaShop() {
                 </div>
               </div>
               <div className='boba-shop-left'>
-                <div>
+                <div className='all-reviews'>
                   <Reviews reviews={bobaShopReviews} />
                 </div>
               </div>

@@ -21,8 +21,8 @@ const DeleteBobaShopConfirmationPage = () => {
 
   return (
     <div>
-      <h1>Are you sure you want to delete this Boba Shop?</h1>
-      <button onClick={handleDelete}>Confirm Delete</button>
+      <h1 className="confirm-delete">Are you sure you want to delete this Boba Shop?</h1>
+      <button className='submit-button confirm'  onClick={handleDelete}>Confirm Delete</button>
     </div>
   )
 }
