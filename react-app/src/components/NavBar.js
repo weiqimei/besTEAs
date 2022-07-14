@@ -27,7 +27,7 @@ const NavBar = () => {
               Login
             </NavLink>
           </div>
-          <div className='each-nav-element'>
+          <div className='each-nav-element signup'>
             <NavLink to='/sign-up' exact={true} activeClassName='active'>
               Sign Up
             </NavLink>

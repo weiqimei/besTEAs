@@ -1,7 +1,7 @@
 .navbar {
   background-color: #d32323;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
 }
 
 .each-nav-element {
@@ -13,4 +13,8 @@
   margin: 10px;
   text-decoration: none;
   color: white;
+}
+
+.signup {
+  margin-right: 50px;
 }
