@@ -22,7 +22,11 @@ const DeleteBobaShopConfirmationPage = () => {
   return (
     <div>
       <h1 className="confirm-delete">Are you sure you want to delete this Boba Shop?</h1>
-      <button className='submit-button confirm'  onClick={handleDelete}>Confirm Delete</button>
+      <div className='submit-button-confirm'>
+        <button className='submit-button-confirm-delete' onClick={handleDelete}>
+          Confirm Delete
+        </button>
+      </div>
     </div>
   )
 }

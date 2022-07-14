@@ -23,6 +23,11 @@ const NavBar = () => {
             </NavLink>
           </div>
           <div className='each-nav-element'>
+            <NavLink to='/about'>
+              About
+            </NavLink>
+          </div>
+          <div className='each-nav-element'>
             <NavLink to='/login' exact={true} activeClassName='active'>
               Login
             </NavLink>
@@ -51,7 +56,7 @@ const NavBar = () => {
                 About
               </NavLink>
             </div>
-            <div className='each-nav-element'>
+            <div>
               <LogoutButton />
             </div>
           </ul>

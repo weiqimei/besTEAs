@@ -80,7 +80,7 @@ const SignUpForm = () => {
   };
 
   if (user) {
-    return <Redirect to='/' />;
+    return <Redirect to='/bobaShops' />;
   }
 
   return (

@@ -9,7 +9,7 @@ const DeleteReviewConfirmationPage = () => {
   const history = useHistory();
   const { reviewId } = useParams();
   const { bobaShopId } = useParams();
-  
+
   const review = Object.values(useSelector(state => state.reviewReducer));
   // const reviewId = review[0].id;
   console.log(review, "---------THIS IS REVIEW from DeleteReviewConfirmationPage.js");
@@ -29,7 +29,11 @@ const DeleteReviewConfirmationPage = () => {
   return (
     <div>
       <h1 className="confirm-delete">Are you sure you want to delete this Review?</h1>
-      <button className='submit-button confirm' onClick={handleDelete}>Confirm Delete</button>
+      <div className='submit-button-confirm'>
+        <button className='submit-button-confirm-delete' onClick={handleDelete}>
+          Confirm Delete
+        </button>
+      </div>
     </div>
   )
 }
