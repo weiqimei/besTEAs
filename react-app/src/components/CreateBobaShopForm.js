@@ -30,6 +30,30 @@ const CreateBobaShopForm = () => {
   const updateHours = (e) => setHours(e.target.value);
   const updateImage = (e) => setImage(e.target.value);
 
+  // function checkImage(url) {
+  //   var image = new Image();
+  //   image.onload = function () {
+  //     if (this.width > 0) {
+  //       // console.log("image exists");
+  //       return true;
+  //     }
+  //   }
+  //   image.onerror = function () {
+  //     // console.log("image doesn't exist");
+  //     return false;
+  //   }
+  //   image.src = url;
+  // }
+  // async function checkImage(url) {
+
+  //   const res = await fetch(url);
+  //   const buff = await res.blob();
+
+  //   return buff.type.startsWith('image/')
+
+  // }
+
+
   // errors handling
   useEffect(() => { 
     const err = [];
@@ -54,6 +78,8 @@ const CreateBobaShopForm = () => {
     if (!hours) err.push('Hours is required');
     if (hours.startsWith(' ')) err.push('Hours cannot start with a space');
     if (hours.length >= 50) err.push('Hours must be less than 50 characters');  
+    if (image.startsWith(' ')) err.push('Image cannot start with a space');
+    if (image && !image.startsWith('https://') && !image.endsWith('.jpg') && !image.endsWith('.png') && !image.endsWith('.jpeg')) err.push('Please provide a valid image URL');
     
     setErrors(err);
   }, [name, address, city, state, zipcode, phone, hours, image]);
@@ -98,6 +124,7 @@ const CreateBobaShopForm = () => {
             placeholder="Name"
             value={name}
             onChange={updateName}
+            required
           />
         </div>
         <br />
@@ -107,6 +134,7 @@ const CreateBobaShopForm = () => {
             placeholder="Address"
             value={address}
             onChange={updateAddress}
+            required
           />
         </div>
         <br />
@@ -116,6 +144,7 @@ const CreateBobaShopForm = () => {
             placeholder="City"
             value={city}
             onChange={updateCity}
+            required
           />
         </div>
          <br />
@@ -125,6 +154,7 @@ const CreateBobaShopForm = () => {
             placeholder="State"
             value={state}
             onChange={updateState}
+            required
           />
         </div>
         <br />
@@ -134,6 +164,7 @@ const CreateBobaShopForm = () => {
             placeholder="Zipcode"
             value={zipcode}
             onChange={updateZipcode}
+            required
           />
         </div>
         <br />
@@ -143,6 +174,7 @@ const CreateBobaShopForm = () => {
             placeholder="Phone"
             value={phone}
             onChange={updatePhone}
+            required
           />
         </div>
         <br />
@@ -152,6 +184,7 @@ const CreateBobaShopForm = () => {
             placeholder="Hours"
             value={hours}
             onChange={updateHours}
+            required
           />
         </div>
         <br />
