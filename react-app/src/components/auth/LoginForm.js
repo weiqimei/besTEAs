@@ -26,12 +26,6 @@ const LoginForm = () => {
 
   const demoLogin = async (e) => {
     e.preventDefault();
-
-    // const demoEmail = "demo@aa.io";
-    // const demoPassword = "password";
-
-    // setEmail(demoEmail);
-    // setPassword(demoPassword);
     dispatch(login("demo@aa.io", "password"));
   };
 
