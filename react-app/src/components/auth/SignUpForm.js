@@ -94,11 +94,11 @@ const SignUpForm = () => {
           By continuing, you agree to besTEAs’ Terms of Service
           and acknowledge besTEAs’ Privacy Policy.
         </p>
-        <div className='demo-button-div'>
+        {/* <div className='demo-button-div'>
           <button className='demo-user-button'>Continue as Demo User</button>
-        </div>
+        </div> */}
         <div className='or'>
-          ---------------------------------------------------- OR ----------------------------------------------------
+          ------------------------------------------------------------------------------------------------------------
         </div>
 
         <div>
