@@ -42,7 +42,7 @@
 
 .edit-delete-boba-shop {
   display: flex;
-  margin-left: 185px;
+  margin-left: 222px;
   margin-top: 40px;
 }
 
@@ -52,6 +52,7 @@
   font-size: smaller;
   padding: 7px;
   background: none;
+  margin: 2px;
 }
 
 .boba-shop-right {

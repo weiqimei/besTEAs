@@ -60,6 +60,8 @@ const EditBobaShopForm = () => {
     if (!hours) err.push('Hours is required');
     if (hours.startsWith(' ')) err.push('Hours cannot start with a space');
     if (hours.length >= 50) err.push('Hours must be less than 50 characters');  
+    if (image.startsWith(' ')) err.push('Image cannot start with a space');
+    if (image && !image.startsWith('https://') && !image.endsWith('.jpg') && !image.endsWith('.png') && !image.endsWith('.jpeg')) err.push('Please provide a valid image URL');
 
     setErrors(err);
   }, [name, address, city, state, zipcode, phone, hours, image]);
