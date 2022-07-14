@@ -24,8 +24,8 @@
   min-height: 9em;
   transition: box-shadow .9s ease;
   word-break: break-all;
-  border: 2px solid blue;
-  margin-bottom: 5px;
+  border: 1px solid rgba(0, 0, 0, .1);
+  margin-bottom: 10px;
 }
 
 .review-content {
