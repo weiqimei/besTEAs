@@ -9,6 +9,8 @@ function Reviews({ reviews }) {
   const { bobaShopId } = useParams();
   const dispatch = useDispatch();
 
+
+
   // console.log(typeof bobaShopId, "THIS IS BOBASHOPID from Reviews.js");
 
   const sessionUser = useSelector((state) => state.session.user)
@@ -26,30 +28,42 @@ function Reviews({ reviews }) {
   }, [dispatch, bobaShopId]);
 
   return (
-    <>
-      <h2>Reviews</h2>
-      <ul>
+    <div className='review-page-div'>
+      <h2 className='reviews-title'>Reviews</h2>
+      <div>
         {reviews.map((review) => {
-          return <li key={review.id}>
-            <div>{review.content}</div>
-            <div className='review-image' style={{ backgroundImage: `url(${review.picture})` }}></div>
-            <div>Date Reviewed: {review.date}</div>
+          return <div className='each-review' key={review.id}>
+            {/* <div>{review.user_id}</div> */}
+
+            <div className='review-content'>
+              <div>{review.content}</div>
+            </div>
+            <div className='review-content'>
+              <div className='review-image' style={{ backgroundImage: `url(${review.picture})` }}></div>
+            </div>
+            <div className='date-reviewed'>
+              <div>Date Reviewed: {review.date}</div>
+            </div>
+
             {/* <div>Review By: {sessionUser.first_name}</div> */}
 
-            {
-              sessionUser?.id === review.user_id &&
-              <NavLink to={`/bobaShops/${bobaShopId}/${review.id}/edit`}>
-                <button>Edit Review</button>
-              </NavLink>}
-            {
-              sessionUser?.id === review.user_id &&
-              <NavLink to={`/bobaShops/${bobaShopId}/${review.id}/delete`}>
-                <button>Delete Review</button>
-              </NavLink>}
-          </li>
+            <div className='edit-delete-review-buttons'>
+              {
+                sessionUser?.id === review.user_id &&
+                <NavLink to={`/bobaShops/${bobaShopId}/${review.id}/edit`}>
+                  <button className='button'>Edit Review</button>
+                </NavLink>}
+              {
+                sessionUser?.id === review.user_id &&
+                <NavLink to={`/bobaShops/${bobaShopId}/${review.id}/delete`}>
+                  <button className='button'>Delete Review</button>
+                </NavLink>}
+            </div>
+          </div>
         })}
-      </ul>
-    </>
+
+      </div>
+    </div>
   )
 }
 
