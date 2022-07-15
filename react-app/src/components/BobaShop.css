@@ -67,8 +67,10 @@
   padding: 15px;
   font-size: 15px;
   position: fixed;
-  left: 1400px;
-
+  /* left: 1000px; */
+  left: 54%;
+  /* bottom: 2%; */
+  top: 55%;
 }
 
 .address {

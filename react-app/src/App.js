@@ -16,6 +16,7 @@ import DeleteBobaShopConfirmationPage from './components/DeleteBobaShopConfirmat
 import DeleteReviewConfirmationPage from './components/DeleteReviewConfirmationPage';
 import SplashPage from './components/SplashPage';
 import Footer from './components/Footer';
+import Error from './components/Error';
 import { authenticate } from './store/session';
 
 function App() {
@@ -73,12 +74,15 @@ function App() {
           <EditReviewForm />
         </ProtectedRoute>
         
-        {/* ADD 404 ERROR PAGE */}
-
         {/* <ProtectedRoute path='/users/:user_id' exact={true} >
           <User />
         </ProtectedRoute> */}
+
+        {/* ADD 404 ERROR PAGE */}
+        <Error />
       </Switch>
+      {/* <Error /> */}
+
     </BrowserRouter>
   );
 }

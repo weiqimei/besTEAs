@@ -206,7 +206,7 @@ const CreateBobaShopForm = () => {
           <br />
           <div>
             <div>
-              <label className='add-boba-shop-label'>Hours</label>
+              <label className='add-boba-shop-label'>Business Hours</label>
             </div>
             <input className='add-boba-shop-input-field'
               type="text"
