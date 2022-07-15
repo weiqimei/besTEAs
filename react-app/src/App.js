@@ -41,7 +41,7 @@ function App() {
         <Route path='/' exact={true} >
           {/* <h1>My Home Page</h1> */}
           <SplashPage />
-          <Footer />
+          {/* <Footer /> */}
         </Route>
         <Route path='/login' exact={true}>
           <LoginForm />
@@ -73,7 +73,7 @@ function App() {
         <ProtectedRoute path='/bobaShops/:bobaShopId/:reviewId/edit' exact={true} >
           <EditReviewForm />
         </ProtectedRoute>
-        
+
         {/* <ProtectedRoute path='/users/:user_id' exact={true} >
           <User />
         </ProtectedRoute> */}
@@ -81,6 +81,8 @@ function App() {
         {/* ADD 404 ERROR PAGE */}
         <Error />
       </Switch>
+      <Footer />
+
       {/* <Error /> */}
 
     </BrowserRouter>
