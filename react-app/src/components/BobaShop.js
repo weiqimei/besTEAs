@@ -74,7 +74,7 @@ function BobaShop() {
 
   return (
     <>
-      <div>
+     {targetBobaShopOne ? <div>
         {(bobaShop?.image) &&
           <div>
             {/* <li>
@@ -136,7 +136,15 @@ function BobaShop() {
             </div>
           </div>
         }
-      </div>
+      </div> : 
+      <>
+      <div className='error-message'>
+        Error: Boba Shop Not Found
+        
+        </div>
+        <div className='error-image'></div>
+      </>
+        } 
     </>
   );
 }
