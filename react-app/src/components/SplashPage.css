@@ -1,1 +1,3 @@
-
+.each-boba-shop:hover {
+  transition: box-shadow .9s ease;
+}

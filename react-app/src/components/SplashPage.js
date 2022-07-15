@@ -54,7 +54,7 @@ function SplashPage() {
         <NavLink to='/login'>Log In </NavLink>
          to Explore Boba Shops</h3> */}
       <h3 className='log-in-to-explore'>
-        Explore Boba Shops</h3>
+         - Explore Boba Shops -</h3>
       <ul>{bobaShopComponents}</ul>
     </>
   )
