@@ -55,6 +55,10 @@
   justify-content: center;
 }
 
+.add-boba-shop-label {
+color: #a08dc8;
+}
+
 .post-new-boba-shop-button {
   display: inline-block;
   vertical-align: middle;

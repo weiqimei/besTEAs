@@ -53,7 +53,6 @@ const CreateBobaShopForm = () => {
 
   // }
 
-
   // errors handling
   useEffect(() => {
     const err = [];
@@ -66,15 +65,19 @@ const CreateBobaShopForm = () => {
     if (!city) err.push('City is required');
     if (city.startsWith(' ')) err.push('City cannot start with a space');
     if (city.length >= 25) err.push('City must be less than 25 characters');
+    if (/^[a-zA-Z]+$/.test(city) === false) err.push('City must be letters only');
     if (!state) err.push('State is required');
     if (state.startsWith(' ')) err.push('State cannot start with a space');
     if (state.length >= 25) err.push('State must be less than 25 characters');
+    if (/^[a-zA-Z]+$/.test(state) === false) err.push('State must be letters only');
     if (!zipcode) err.push('Zipcode is required');
     if (zipcode.startsWith(' ')) err.push('Zipcode cannot start with a space');
-    if (zipcode.length >= 25) err.push('Zipcode must be less than 25 characters');
-    if (!phone) err.push('Phone is required');
-    if (phone.startsWith(' ')) err.push('Phone cannot start with a space');
-    if (phone.length >= 25) err.push('Phone must be less than 25 characters');
+    if (zipcode.length !== 5) err.push('Zipcode must be a 5 digit area code');
+    if (isNaN(zipcode)) err.push('Zipcode must be numeric');
+    if (!phone) err.push('Phone number is required');
+    if (phone.startsWith(' ')) err.push('Phone number cannot start with a space');
+    if (isNaN(phone)) err.push('Phone number must be numeric');
+    if (phone.length < 7 || phone.length >= 25) err.push('Phone number must be between 7 and 25 characters');
     if (!hours) err.push('Hours is required');
     if (hours.startsWith(' ')) err.push('Hours cannot start with a space');
     if (hours.length >= 50) err.push('Hours must be less than 50 characters');
@@ -122,9 +125,12 @@ const CreateBobaShopForm = () => {
         {/* <br /> */}
         <form onSubmit={handleSubmit} className='add-boba-shop-form'>
           <div>
+            <div>
+              <label className='add-boba-shop-label'>Name</label>
+            </div>
             <input className='add-boba-shop-input-field'
               type="text"
-              placeholder="Name"
+              placeholder="Boba Guys"
               value={name}
               onChange={updateName}
               required
@@ -132,9 +138,14 @@ const CreateBobaShopForm = () => {
           </div>
           <br />
           <div>
+            <div>
+              <div>
+                <label className='add-boba-shop-label'>Address</label>
+              </div>
+            </div>
             <input className='add-boba-shop-input-field'
               type="text"
-              placeholder="Address"
+              placeholder="123 Boba Street"
               value={address}
               onChange={updateAddress}
               required
@@ -142,9 +153,12 @@ const CreateBobaShopForm = () => {
           </div>
           <br />
           <div>
+            <div>
+              <label className='add-boba-shop-label'>City</label>
+            </div>
             <input className='add-boba-shop-input-field'
               type="text"
-              placeholder="City"
+              placeholder="San Francisco"
               value={city}
               onChange={updateCity}
               required
@@ -152,9 +166,12 @@ const CreateBobaShopForm = () => {
           </div>
           <br />
           <div>
+            <div>
+              <label className='add-boba-shop-label'>State</label>
+            </div>
             <input className='add-boba-shop-input-field'
               type="text"
-              placeholder="State"
+              placeholder="CA"
               value={state}
               onChange={updateState}
               required
@@ -162,9 +179,12 @@ const CreateBobaShopForm = () => {
           </div>
           <br />
           <div>
+            <div>
+              <label className='add-boba-shop-label'>Zipcode</label>
+            </div>
             <input className='add-boba-shop-input-field'
               type="text"
-              placeholder="Zipcode"
+              placeholder="94102"
               value={zipcode}
               onChange={updateZipcode}
               required
@@ -172,9 +192,12 @@ const CreateBobaShopForm = () => {
           </div>
           <br />
           <div>
+            <div>
+              <label className='add-boba-shop-label'>Phone</label>
+            </div>
             <input className='add-boba-shop-input-field'
               type="text"
-              placeholder="Phone"
+              placeholder="123-456-7890"
               value={phone}
               onChange={updatePhone}
               required
@@ -182,9 +205,12 @@ const CreateBobaShopForm = () => {
           </div>
           <br />
           <div>
+            <div>
+              <label className='add-boba-shop-label'>Hours</label>
+            </div>
             <input className='add-boba-shop-input-field'
               type="text"
-              placeholder="Hours"
+              placeholder="9am-9pm"
               value={hours}
               onChange={updateHours}
               required
@@ -192,9 +218,12 @@ const CreateBobaShopForm = () => {
           </div>
           <br />
           <div>
+            <div>
+              <label className='add-boba-shop-label'>Image URL (must be .png/.jpg/.jpeg/.gif)</label>
+            </div>
             <input className='add-boba-shop-input-field'
               type="text"
-              placeholder="Image (Optional)"
+              placeholder="https://boba-image.jpg"
               value={image}
               onChange={updateImage}
               required
