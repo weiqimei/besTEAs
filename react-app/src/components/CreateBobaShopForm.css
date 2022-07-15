@@ -56,7 +56,7 @@
 }
 
 .add-boba-shop-label {
-color: #a08dc8;
+  color: #a08dc8;
 }
 
 .post-new-boba-shop-button {
@@ -113,10 +113,12 @@ color: #a08dc8;
   font-size: 30px;
   margin-bottom: 30px;
   color: #836ab8;
+  display: flex;
+  justify-content: center;
 }
 
 .add-boba-shop-errors {
-display: flex;
+  display: flex;
   justify-content: center;
   color: #b4a5d2;
   font-size: 23px;
