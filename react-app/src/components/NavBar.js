@@ -23,11 +23,6 @@ const NavBar = () => {
             </NavLink>
           </div>
           <div className='each-nav-element'>
-            <NavLink to='/about'>
-              About
-            </NavLink>
-          </div>
-          <div className='each-nav-element'>
             <NavLink to='/login' exact={true} activeClassName='active'>
               Login
             </NavLink>
@@ -51,11 +46,7 @@ const NavBar = () => {
                 Add Boba Shop
               </NavLink>
             </div>
-            <div className='each-nav-element'>
-              <NavLink to='/about'>
-                About
-              </NavLink>
-            </div>
+
             <div>
               <LogoutButton />
             </div>
