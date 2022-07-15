@@ -30,7 +30,7 @@ const CreateReviewForm = ({ bobaShopId }) => {
     if (content.length > 255) err.push('Review must be less than 255 characters');
     if (!picture) err.push('Please add a picture');
     if (picture.startsWith(' ')) err.push('Picture cannot start with a space');
-    if (picture && !picture.startsWith('https://') && !picture.endsWith('.jpg') && !picture.endsWith('.png') && !picture.endsWith('.jpeg')) err.push('Please provide a valid image URL');
+    if (picture && !picture.startsWith('https://') && !picture.endsWith('.jpg') && !picture.endsWith('.png') && !picture.endsWith('.jpeg') && !picture.endsWith('.gif')) err.push('Please provide a valid image URL');
 
     setErrors(err);
   }, [content, picture]);
