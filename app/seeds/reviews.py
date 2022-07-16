@@ -31,8 +31,8 @@ def seed_reviews():
         user_id=1, boba_shop_id=12, content='Mediocre drinks. Their popcorn chicken is really good though!', picture='https://s3-media0.fl.yelpcdn.com/bphoto/pPvJexI2pBxO3m323pPgqQ/348s.jpg', date='2020-01-01 00:00:00')
     review11 = Review(
         user_id=2, boba_shop_id=13, content='Their fruit teas are usually better than their milk teas. I love their hawaiian fruit tea, but this time I just got the jasmine milk teas.', picture='https://chowyumla.files.wordpress.com/2019/12/71835947_2591890617558417_1768588457849913344_n.jpg?w=640', date='2020-01-01 00:00:00')
-    review12 = Review(
-        user_id=3, boba_shop_id=14, content='My first time trying liquid nitrogen boba. SO creamy and smooth!', picture='https://fastly.4sqi.net/img/general/600x600/12291826_0Yw2AS3iMORYLxPS8yk4IfdEGh-zK8qPpwziT7cJwb8.jpg', date='2020-01-01 00:00:00')
+    # review12 = Review(
+    #     user_id=3, boba_shop_id=14, content='My first time trying liquid nitrogen boba. SO creamy and smooth!', picture='https://fastly.4sqi.net/img/general/600x600/12291826_0Yw2AS3iMORYLxPS8yk4IfdEGh-zK8qPpwziT7cJwb8.jpg', date='2020-01-01 00:00:00')
 
 
     db.session.add(demo_review)
@@ -49,7 +49,7 @@ def seed_reviews():
     db.session.add(review9)
     db.session.add(review10)
     db.session.add(review11)
-    db.session.add(review12)
+    # db.session.add(review12)
 
     db.session.commit()
 
