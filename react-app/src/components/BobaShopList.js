@@ -27,10 +27,10 @@ function BobaShopList() {
                   <div className='boba-shop-name'>
                     {bobaShop.name}
                   </div>
-                  <div>
+                  <div className='boba-shop-phone'>
                     {bobaShop.phone}
                   </div>
-                  <div>
+                  <div className='boba-shop-address'>
                     {bobaShop.address} {bobaShop.city}, {bobaShop.state} {bobaShop.zipcode}
                   </div>
                   <br />
