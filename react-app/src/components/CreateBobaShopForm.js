@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useHistory, useParams } from "react-router-dom";
+import { useHistory, useParams, NavLink } from "react-router-dom";
 import { getAllBobaShops, createBobaShop } from "../store/bobashops";
 import './CreateBobaShopForm.css';
 
@@ -209,6 +209,9 @@ const CreateBobaShopForm = () => {
           <div>
             <button className='post-new-boba-shop-button' type="submit" disabled={!!errors.length}>Post New Boba Shop</button>
           </div>
+          <NavLink to={`/bobaShops`}>
+            <div className='go-back-to-boba-shops-link'>Go Back to Boba Shops</div>
+          </NavLink>
         </form>
       </div>
 

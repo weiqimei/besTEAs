@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useHistory, useParams } from "react-router-dom";
+import { useHistory, useParams, NavLink } from "react-router-dom";
 import { editBobaShop, getBobaShop } from "../store/bobashops";
 
 const EditBobaShopForm = () => {
@@ -105,82 +105,85 @@ const EditBobaShopForm = () => {
             <li className='errors' key={i}>{err}</li>
           ))}
         </div>
-      <div>
-        <input className='add-boba-shop-input-field' 
-          type="text"
-          placeholder="Name"
-          value={name}
-          onChange={updateName}
-        />
-      </div>
+        <div>
+          <input className='add-boba-shop-input-field'
+            type="text"
+            placeholder="Name"
+            value={name}
+            onChange={updateName}
+          />
+        </div>
         <br />
-      <div>
-        <input className='add-boba-shop-input-field'
-          type="text"
-          placeholder="Address"
-          value={address}
-          onChange={updateAddress}
-        />
-      </div>
+        <div>
+          <input className='add-boba-shop-input-field'
+            type="text"
+            placeholder="Address"
+            value={address}
+            onChange={updateAddress}
+          />
+        </div>
         <br />
-      <div>
-        <input className='add-boba-shop-input-field'
-          type="text"
-          placeholder="City"
-          value={city}
-          onChange={updateCity}
-        />
-      </div>
+        <div>
+          <input className='add-boba-shop-input-field'
+            type="text"
+            placeholder="City"
+            value={city}
+            onChange={updateCity}
+          />
+        </div>
         <br />
-      <div>
-        <input className='add-boba-shop-input-field'
-          type="text"
-          placeholder="State"
-          value={state}
-          onChange={updateState}
-        />
-      </div>
+        <div>
+          <input className='add-boba-shop-input-field'
+            type="text"
+            placeholder="State"
+            value={state}
+            onChange={updateState}
+          />
+        </div>
         <br />
-      <div>
-        <input className='add-boba-shop-input-field'
-          type="text"
-          placeholder="Zipcode"
-          value={zipcode}
-          onChange={updateZipcode}
-        />
-      </div>
+        <div>
+          <input className='add-boba-shop-input-field'
+            type="text"
+            placeholder="Zipcode"
+            value={zipcode}
+            onChange={updateZipcode}
+          />
+        </div>
         <br />
-      <div>
-        <input className='add-boba-shop-input-field'
-          type="text"
-          placeholder="Phone"
-          value={phone}
-          onChange={updatePhone}
-        />
-      </div>
+        <div>
+          <input className='add-boba-shop-input-field'
+            type="text"
+            placeholder="Phone"
+            value={phone}
+            onChange={updatePhone}
+          />
+        </div>
         <br />
-      <div>
-        <input className='add-boba-shop-input-field'
-          type="text"
-          placeholder="Hours"
-          value={hours}
-          onChange={updateHours}
-        />
-      </div>
+        <div>
+          <input className='add-boba-shop-input-field'
+            type="text"
+            placeholder="Hours"
+            value={hours}
+            onChange={updateHours}
+          />
+        </div>
         <br />
-      <div>
-        <input className='add-boba-shop-input-field'
-          type="text"
-          placeholder="Image"
-          value={image}
-          onChange={updateImage}
-        />
-      </div>
+        <div>
+          <input className='add-boba-shop-input-field'
+            type="text"
+            placeholder="Image"
+            value={image}
+            onChange={updateImage}
+          />
+        </div>
         <br />
-      <div>
+        <div>
           <button className='submit-button' type="submit" disabled={!!errors.length}>Update Boba Shop</button>
-      </div>
-    </form>
+        </div>
+        <NavLink to={`/bobaShops/${bobaShopId}`}>
+          <div className='cancel-link'>Cancel</div>
+        </NavLink>
+      </form>
     </>
   )
 }

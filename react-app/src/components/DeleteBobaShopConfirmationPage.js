@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { useParams, useHistory } from "react-router-dom";
+import { useParams, useHistory, NavLink } from "react-router-dom";
 import { getBobaShop, deleteBobaShop } from "../store/bobashops";
 
 
@@ -26,6 +26,11 @@ const DeleteBobaShopConfirmationPage = () => {
         <button className='submit-button-confirm-delete' onClick={handleDelete}>
           Confirm Delete
         </button>
+      </div>
+      <div className="cancel-div">
+        <NavLink to={`/bobaShops/${bobaShopId}`}>
+          <div className='cancel-link'>Cancel</div>
+        </NavLink>
       </div>
     </div>
   )

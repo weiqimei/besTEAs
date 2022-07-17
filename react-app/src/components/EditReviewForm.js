@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useHistory, useParams } from "react-router-dom";
+import { useHistory, useParams, NavLink } from "react-router-dom";
 import { editReview, getReview } from "../store/reviews";
 
 const EditReviewForm = () => {
@@ -107,6 +107,11 @@ const EditReviewForm = () => {
         /> */}
         <br />
         <button className='submit-button' type='submit' disabled={!!errors.length}>Update Review</button>
+          <div className="cancel-div">
+            <NavLink to={`/bobaShops/${bobaShopId}`}>
+              <div className='cancel-link'>Cancel</div>
+            </NavLink>
+          </div>
       </form>
       </div>
     </>
