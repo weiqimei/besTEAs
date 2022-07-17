@@ -112,6 +112,33 @@
   transform: scale(1.1);
 }
 
+.go-back-to-boba-shops-link {
+  text-decoration: none;
+  color: #836ab8;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+.go-back-to-boba-shops-link:hover {
+  transform: scale(1.1);
+}
+
+.cancel-link {
+  text-decoration: none;
+  color: black;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+.cancel-link:hover {
+  transform: scale(1.1);
+}
+
+.cancel-div {
+  display: flex;
+  justify-content: center;
+}
+
 .errors-div {
   margin-top: 375px;
   margin-right: 350px;
