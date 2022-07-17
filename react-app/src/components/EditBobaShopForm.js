@@ -48,7 +48,7 @@ const EditBobaShopForm = () => {
     if (!city) err.push('City is required');
     if (city.startsWith(' ')) err.push('City cannot start with a space');
     if (city.length >= 25) err.push('City must be less than 25 characters');
-    if (/^[a-zA-Z]+$/.test(city) === false) err.push('City must be letters only');
+    if (/^[A-Za-z\s]*$/.test(city) === false) err.push('City must be letters only');
     if (!state) err.push('State is required');
     if (state.startsWith(' ')) err.push('State cannot start with a space');
     if (state.length >= 25) err.push('State must be less than 25 characters');
@@ -59,7 +59,7 @@ const EditBobaShopForm = () => {
     if (isNaN(zipcode)) err.push('Zipcode must be numeric');
     if (!phone) err.push('Phone number is required');
     if (phone.startsWith(' ')) err.push('Phone number cannot start with a space');
-    if (isNaN(phone)) err.push('Phone number must be numeric');
+    // if (/^(?:\(\d{3}\)|\d{3}-)\d{3}-\d{4}$/.test(phone)) err.push('Phone number must be in the format (xxx)xxx-xxxx');
     if (phone.length < 7 || phone.length >= 25) err.push('Phone number must be between 7 and 25 characters');
     if (!hours) err.push('Hours is required');
     if (hours.startsWith(' ')) err.push('Hours cannot start with a space');

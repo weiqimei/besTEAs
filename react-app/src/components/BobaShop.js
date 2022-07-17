@@ -74,7 +74,7 @@ function BobaShop() {
 
   return (
     <>
-     {targetBobaShopOne ? <div>
+      {targetBobaShopOne ? <div>
         {(bobaShop?.image) &&
           <div>
             {/* <li>
@@ -115,13 +115,13 @@ function BobaShop() {
                   <div className='address'>
                     <div className='top-text'><strong>Address</strong> </div>
                     <div className='text'>{bobaShop.address} {bobaShop.city} {bobaShop.state} {bobaShop.zipcode}</div>
-        
+
                   </div>
                   <div className='phone'>
                     <div className='top-text'><strong>Phone Number</strong></div>
                     <div className='text'>{bobaShop.phone}</div>
 
-                     
+
                   </div>
                   <div>
                     <CreateReviewForm bobaShopId={bobaShopId} />
@@ -136,29 +136,21 @@ function BobaShop() {
             </div>
           </div>
         }
-      </div> : 
-      <>
-      <div className='error-message'>
-        Error: Boba Shop Not Found
-        
-        </div>
-        <div className='error-image'></div>
-      </>
-        } 
+      </div> :
+        <>
+          <div className='error-message'>
+            Error: Boba Shop Not Found
+          </div>
+          <div className='error-button-div'>
+            <NavLink to={`/bobaShops`}>
+              <button className='go-back-to-boba-shops'>Go Back to Boba Shops</button>
+            </NavLink>
+          </div>
+          {/* <div className='error-image'></div> */}
+        </>
+      }
     </>
   );
 }
 
 export default BobaShop;
-
-
-// {
-//   sessionUser?.id === OneBobaShop[0].user_id && <NavLink to={`/bobaShops/${bobaShop.id}/edit`}>
-//     <button>Edit Boba Shop Details</button>
-//   </NavLink>
-// }
-// {
-//   sessionUser?.id === OneBobaShop[0].user_id && <NavLink to={`/bobaShops/${bobaShop.id}/delete`}>
-//     <button>Delete Boba Shop</button>
-//   </NavLink>
-// }

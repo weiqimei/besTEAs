@@ -16,6 +16,10 @@
   color: white;
 }
 
+.each-nav-element:hover {
+  transform: scale(1.1);
+}
+
 .signup {
   margin-right: 50px;
 }
