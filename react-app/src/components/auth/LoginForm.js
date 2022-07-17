@@ -61,7 +61,7 @@ const LoginForm = () => {
           <button onClick={demoLogin} className='demo-user-button'>Continue as Demo User</button>
         </div>
         <div className='or'>
-          --------------------------------------- OR ---------------------------------------
+          ------------------------------------------------------------- OR -------------------------------------------------------------
         </div>
         <div>
           {errors.map((error, ind) => (
