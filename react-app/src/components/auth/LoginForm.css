@@ -17,7 +17,7 @@
   display: flex;
   color: #d32323;
   font-weight: bold;
-  font-size: 30px;
+  font-size: 70px;
   margin: 10px;
   margin-top: 200px;
   justify-content: center;
@@ -26,6 +26,8 @@
 .new-to-besteas-signup {
   display: flex;
   justify-content: center;
+  font-size: 30px;
+  margin-top: 7px;
 }
 
 .new-to-besteas-signup>a {
@@ -41,7 +43,7 @@
 .terms-of-service {
   display: block;
   color: #333;
-  font-size: 11px;
+  font-size: 17px;
   text-align: center;
   padding: 5px;
   margin-top: 10px;
@@ -56,13 +58,13 @@
 
 .demo-user-button {
   display: block;
-  width: 100%;
+  width: 40%;
   height: 30px;
   background: #fff;
   color: #666;
   border: 1px solid #b9b8b8;
   border-radius: 3px;
-  font-size: 14px;
+  font-size: 18px;
   margin-top: 10px;
   margin-bottom: 10px;
   cursor: pointer;
@@ -96,7 +98,7 @@
   vertical-align: middle;
   cursor: pointer;
   padding: 10px 13px;
-  font-size: 16px;
+  font-size: 20px;
   font-weight: 550;
   color: #fff;
   background: #d32323;
@@ -106,7 +108,7 @@
   transition-property: background-color, background-position, background-size, border-color;
   background-position: 50% 50%;
   background-size: 15000px 15000px;
-  width: 100%;
+  width: 99%;
   box-sizing: border-box;
   margin-bottom: 10px;
 }
@@ -135,7 +137,7 @@
   color: white;
   padding: 9px;
   font-size: 17px;
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .logout-button:hover {
