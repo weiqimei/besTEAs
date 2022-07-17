@@ -53,6 +53,11 @@
   padding: 7px;
   background: none;
   margin: 2px;
+  cursor: pointer;
+}
+
+.button:hover {
+  transform: scale(1.03);
 }
 
 .boba-shop-right {
@@ -98,4 +103,16 @@
 
 .all-reviews {
   margin: 0 0 0 50px;
+}
+
+.error-message {
+  display: flex;
+  justify-content: center;
+  margin-top: 300px;
+  font-size: 80px;
+}
+
+.error-button-div {
+  display: flex;
+  justify-content: center;
 }

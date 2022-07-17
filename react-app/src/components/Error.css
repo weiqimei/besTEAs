@@ -1,0 +1,28 @@
+.something-went-wrong {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.error-subtext {
+  font-size: 40px;
+  margin-top: 10px;
+}
+
+.go-back-to-boba-shops {
+  margin-top: 24px;
+  /* margin-bottom: 20px; */
+  border: 1px solid black;
+  border-radius: 0.95em;
+  /* margin-right: 50px; */
+  background: none;
+  /* color: white; */
+  padding: 9px;
+  font-size: 17px;
+  cursor: pointer;
+}
+
+.go-back-to-boba-shops:hover {
+  transform: scale(1.1);
+}

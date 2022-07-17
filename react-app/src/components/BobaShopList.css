@@ -54,6 +54,10 @@
   color: #000;
 }
 
+.boba-shop-div:hover {
+  transform: scale(1.1);
+}
+
 .title-boba-shop-page {
   text-align: center;
   margin-bottom: 50px;

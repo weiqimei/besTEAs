@@ -113,6 +113,10 @@
   margin-bottom: 10px;
 }
 
+.submit-button:hover {
+  transform: scale(1.03);
+}
+
 /* .errors-div {
   display: flex;
   justify-content: center;

@@ -78,6 +78,10 @@
   box-sizing: border-box;
 }
 
+.post-new-boba-shop-button:hover {
+  transform: scale(1.1);
+}
+
 .submit-button-confirm {
   display: flex;
   justify-content: center;
@@ -101,6 +105,11 @@
   background-size: 15000px 15000px;
   box-sizing: border-box;
   margin-top: 30px;
+  cursor: pointer;
+}
+
+.submit-button-confirm-delete:hover {
+  transform: scale(1.1);
 }
 
 .errors-div {
