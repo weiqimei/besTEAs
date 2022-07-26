@@ -14,8 +14,3 @@ frontend (react-app)
 - npm start
 
 
-
-
-User - weiqi
-Access key ID - AKIA2ZO4PMUDLEMSGYL7 
-Secret access key - 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
