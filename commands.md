@@ -14,3 +14,11 @@ frontend (react-app)
 - npm start
 
 
+
+
+reset database
+- flask db init (this will create the migrations folder)
+- flask db migrate (this will create the versions file; migrate tables)
+- flask db upgrade (creates tables in db)
+- flask seed all (seeds data)
+
