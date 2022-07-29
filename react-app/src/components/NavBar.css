@@ -1,13 +1,31 @@
 .navbar {
   background-color: #d32323;
+  /* display: flex; */
   display: flex;
   justify-content: space-between;
+  /* grid-template-columns: 22px auto 480px; */
+  /* width: 100%; */
+  /* padding-left: 30px; */
+  text-align: center;
+  color: #fff;
+  transition: all 1s 0s;
+  align-items: center;
+  height: 150px;
+  /* background: linear-gradient(180deg, rgba(0, 0, 0, .3337710084033614) 59%, rgba(82, 82, 82, .31416316526610644) 88%, rgba(82, 81, 81, .303)); */
+}
+
+.logo-nav {
+  /* height: 100%; */
+  width: 165px;
+  cursor: pointer;
+  margin-left: 100%;
+
 }
 
 .each-nav-element {
   margin-top: 33px;
   margin-bottom: 20px;
-  font-size: 25px;
+  font-size: 30px;
 }
 
 .each-nav-element>a {
@@ -18,8 +36,9 @@
 
 .each-nav-element:hover {
   transform: scale(1.1);
+  text-decoration: underline white;
 }
 
 .signup {
-  margin-right: 50px;
+  margin-right: 150px;
 }

@@ -14,7 +14,10 @@ const NavBar = () => {
         <ul className='navbar'>
           <div className='each-nav-element'>
             <NavLink to='/' exact={true} activeClassName='active'>
-              Home
+              {/* Home */}
+              {/* <img src='https://api.logo.com/api/v2/images?logo=logo_e986c06d-9167-44e2-b9b2-1a102c689e3f&u=2022-07-29T05%3A19%3A38.169Z&margins=0&format=webp&quality=30&width=200&background=transparent' className='logo-nav'/> */}
+              <img src='https://api.logo.com/api/v2/images?logo=logo_83036964-cf25-46d0-a6c8-da0cf3e30cc9&u=2022-07-29T05%3A11%3A58.774Z&margins=0&format=webp&quality=30&width=200&background=transparent' className='logo-nav' />
+
             </NavLink>
           </div>
           <div className='each-nav-element'>
