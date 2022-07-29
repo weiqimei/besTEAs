@@ -53,16 +53,16 @@ function SplashPage() {
       <div className="banner-container">
 
         <h1 className='title-boba-shop-page'>Welcome to besTEAs!</h1>
-        <form className="banner-search">
+        <form className="search-boba-shops">
           <label>
             <input
               type="text"
-              className="banner-search-input"
+              className="search-inner"
               placeholder="Search Boba Shops"
             ></input>
           </label>
 
-          <button className="banner-submit">
+          <button className="submit-search">
             Search
           </button>
         </form>
