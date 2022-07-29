@@ -49,10 +49,23 @@ function SplashPage() {
       {/* <NavLink to='/bobaShops/new'>
         <button className='create-new-boba-shop-button'>create new boba shop</button>
       </NavLink> */}
-      
+
       <div className="banner-container">
 
-      <h1 className='title-boba-shop-page'>Welcome to besTEAs!</h1>
+        <h1 className='title-boba-shop-page'>Welcome to besTEAs!</h1>
+        <form className="search-boba-shops">
+          <label>
+            <input
+              type="text"
+              className="search-inner"
+              placeholder="Search Boba Shops"
+            ></input>
+          </label>
+
+          <button className="submit-search">
+            Search
+          </button>
+        </form>
       </div>
       {/* <h3 className='log-in-to-explore'>
         <NavLink to='/login'>Log In </NavLink>
