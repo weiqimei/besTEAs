@@ -1,3 +1,15 @@
 .each-boba-shop:hover {
   transition: box-shadow .9s ease;
 }
+
+.banner-container {
+  height: 70vh;
+  /* background-image: url("https://i.pinimg.com/originals/fc/3c/2f/fc3c2fcf15488628b1912dfdfb943878.jpg"); */
+  background-image: url("https://cdn.i-scmp.com/sites/default/files/styles/landscape/public/d8/yp/images/b13b8606-a7a8-11e9-8d5c-2d5b58977904imagehires153609.jpg?itok=0frnkyyX");
+  /* background-image: url("https://lahstalon.org/wp-content/uploads/2021/10/all-boba-900x600.jpeg"); */
+  background-position: bottom;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  opacity: 0.7;
+}

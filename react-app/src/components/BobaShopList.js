@@ -45,8 +45,11 @@ function BobaShopList() {
 
   return (
     <>
-      <h1 className='title-boba-shop-page'>Browse Boba Shops </h1>
+      <h1 className='browse-boba-shops'>Browse Boba Shops </h1>
+   
+
       <ul>{bobaShopComponents}</ul>
+    
       {/* <NavLink to='/bobaShops/new'>
         <button>create new boba shop</button>
       </NavLink> */}
