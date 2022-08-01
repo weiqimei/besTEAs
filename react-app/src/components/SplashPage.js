@@ -58,7 +58,7 @@ function SplashPage() {
             <input
               type="text"
               className="search-inner"
-              placeholder="Search Boba Shops"
+              placeholder="Search Bar In Progress"
             ></input>
           </label>
 
