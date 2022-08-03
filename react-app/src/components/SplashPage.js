@@ -53,7 +53,7 @@ function SplashPage() {
       <div className="banner-container">
 
         <h1 className='title-boba-shop-page'>Welcome to besTEAs!</h1>
-        <form className="search-boba-shops">
+        {/* <form className="search-boba-shops">
           <label>
             <input
               type="text"
@@ -65,7 +65,7 @@ function SplashPage() {
           <button className="submit-search">
             Search
           </button>
-        </form>
+        </form> */}
       </div>
       {/* <h3 className='log-in-to-explore'>
         <NavLink to='/login'>Log In </NavLink>
