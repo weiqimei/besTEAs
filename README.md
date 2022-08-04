@@ -40,7 +40,7 @@
 
 [Click here to view besTEAs live!](https://besteas.herokuapp.com/)
 <br>
-![Screen Shot 2022-07-14 at 9 22 47 AM](https://user-images.githubusercontent.com/99014726/179030351-c99ef4e3-4d9a-4e24-82cf-7f9375a6fe51.png)
+![Screen Shot 2022-08-03 at 4 59 00 PM](https://user-images.githubusercontent.com/99014726/182734490-f4698164-1eab-4ac7-a712-392fdf0fbf32.png)
 </br>
 
 
