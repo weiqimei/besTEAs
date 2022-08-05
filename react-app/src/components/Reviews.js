@@ -34,7 +34,9 @@ function Reviews({ reviews }) {
         {reviews.map((review) => {
           return <div className='each-review' key={review.id}>
             {/* <div>{review.user_id}</div> */}
-
+            <div className='review-content'>
+              <div>Reviewed By: {review.user.first_name} {review.user.last_name}</div>
+            </div>
             <div className='review-content'>
               <div>{review.content}</div>
             </div>

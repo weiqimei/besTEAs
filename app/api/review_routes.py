@@ -1,6 +1,6 @@
 from flask import Blueprint, jsonify, request
 from flask_login import login_required, current_user
-from app.models import db, Review
+from app.models import db, Review, User
 from app.forms import ReviewForm
 from .auth_routes import validation_errors_to_error_messages
 from datetime import datetime
@@ -43,7 +43,16 @@ def create_review(bobaShopId):
 # @login_required
 def get_reviews(id):
     reviews = Review.query.filter(Review.boba_shop_id == id) 
-    return {'reviews': [review.to_dict() for review in reviews]}
+    user_ids = set([review.user_id for review in reviews])
+    user_id_dict = {} # id: user object
+    for id in user_ids:
+        user = User.query.get(id)
+        user_id_dict[id] = user.to_dict()
+    res_reviews = [review.to_dict() for review in reviews]
+    for review in res_reviews:
+        user_id = review['user_id']
+        review['user'] = user_id_dict[user_id]
+    return {'reviews': res_reviews}
 
 # ——————————————————————————————————————————————————————————————————————————————————
 # *                                   UPDATE
