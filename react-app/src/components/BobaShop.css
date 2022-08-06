@@ -71,11 +71,11 @@
   border-radius: 5px;
   padding: 15px;
   font-size: 15px;
-  position: fixed;
+  position: absolute;
   /* left: 1000px; */
-  left: 54%;
+  left: 58%;
   /* bottom: 2%; */
-  top: 55%;
+  top: 763px;
 }
 
 .address {

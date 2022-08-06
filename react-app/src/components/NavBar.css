@@ -15,17 +15,21 @@
 }
 
 .logo-nav {
-  width: 145px;
+  width: 100px;
   margin-bottom: 7px;
   cursor: pointer;
   margin-left: 100%;
 
 }
 
+.yelp-logo {
+  display: flex;
+}
+
 .each-nav-element {
   margin-top: 33px;
   margin-bottom: 20px;
-  font-size: 30px;
+  font-size: 25px;
 }
 
 .each-nav-element>a {

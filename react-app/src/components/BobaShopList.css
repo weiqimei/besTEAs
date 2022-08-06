@@ -12,12 +12,14 @@
   grid-template-columns: repeat(2, 1fr);
   border: 1px solid rgba(0, 0, 0, .1);
   border-radius: 10px;
-  margin: 15px;
+  /* margin: 15px; */
+  margin-top: 15px;
+  margin-bottom: 15px;
 }
 
 .boba-shop-image {
   width: 100%;
-  height: 400px;
+  height: 300px;
   background-size: cover;
   background-position: 50%;
   border-top-left-radius: 10px;
@@ -32,23 +34,38 @@
 }
 
 .boba-shop-name {
-  font-size: 50px;
+  font-size: 30px;
   font-weight: 700;
   height: 100%;
   box-sizing: border-box;
   padding-top: 60px;
   /* margin-left: 30px; */
   display: flex;
+  /* text-decoration-line: underline; */
   justify-content: space-between;
   /* text-decoration: underline; */
 }
 
+.each-boba-shop:hover {
+  text-decoration-line: underline;
+}
+
 .boba-shop-phone {
-  font-size: 30px;
+  font-size: 20px;
+}
+
+.icons {
+  width: 20px;
+  margin-right: 10px;
 }
 
 .boba-shop-address {
-  font-size: 25px;
+  display: flex;
+  font-size: 20px;
+}
+
+.address-list-page {
+  margin-right: 10px;
 }
 
 .boba-shop-div>a {
@@ -65,10 +82,10 @@
   margin-bottom: 50px;
   margin-top: 70px;
   font-size: 60px; */
-text-align: center;
+  text-align: center;
   margin-bottom: 25.5%;
   margin-top: 180px;
-  font-size: 170px;
+  font-size: 130px;
   color: black;
   /* margin-left: 16%; */
 }
@@ -77,14 +94,30 @@ text-align: center;
   text-align: center;
   margin-bottom: 70px;
   margin-top: 180px;
-  font-size: 100px;
+  font-size: 50px;
   color: black;
 }
 
 .log-in-to-explore {
+  /* text-align: center;
+  margin: 100px;
+  font-size: 70px; */
+
   text-align: center;
   margin: 100px;
-  font-size: 70px;
+  /* font-size: 28px; */
+  font-family: 'Poppins', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 28px;
+  font-weight: 700;
+  -webkit-letter-spacing: -0.4px;
+  -moz-letter-spacing: -0.4px;
+  -ms-letter-spacing: -0.4px;
+  letter-spacing: -0.4px;
+  line-height: 36px;
+  word-wrap: break-word !important;
+  word-break: break-word !important;
+  overflow-wrap: break-word !important;
+  color: rgba(45, 46, 47, 1);
 }
 
 .log-in-to-explore>a {
