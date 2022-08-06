@@ -12,6 +12,7 @@
       height: 5.5rem;
       flex-direction: column;
       padding: 5px 0;
+      margin-top: 15px;
 }
 
 .github-repo-link:hover {

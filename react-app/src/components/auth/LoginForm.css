@@ -28,6 +28,7 @@
   justify-content: center;
   font-size: 30px;
   margin-top: 7px;
+  /* margin-bottom: 100px; */
 }
 
 .new-to-besteas-signup>a {
@@ -38,6 +39,19 @@
 .sign-up-text {
   margin-left: 5px;
   /* margin-top: 3px; */
+}
+
+.new-to-besteas-signup-bottom {
+  display: flex;
+  justify-content: center;
+  font-size: 30px;
+  margin-top: 7px;
+  margin-bottom: 100px;
+}
+
+.new-to-besteas-signup-bottom>a {
+  text-decoration: none;
+  color: #0073bb;
 }
 
 .terms-of-service {
@@ -133,14 +147,14 @@
 
 .logout-button {
   margin-top: 24px;
-  margin-bottom: 20px;
+  margin-bottom: 14px;
   border: 1px solid white;
-  border-radius: 0.65em;
-  margin-right: 110px;
+  border-radius: 15px;
+  margin-right: 100px;
   background: none;
   color: white;
-  padding: 12px;
-  font-size: 28px;
+  padding: 10px;
+  font-size: 20px;
   cursor: pointer;
 }
 

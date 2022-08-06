@@ -166,7 +166,7 @@ const SignUpForm = () => {
         </div>
         <br />
         <button className='submit-button' type='submit' disabled={!!errors.length}>Sign Up</button>
-        <div className='new-to-besteas-signup'>
+        <div className='new-to-besteas-signup-bottom'>
           <h5>Already on besTEAs?</h5>
           <NavLink to='/login'>
             <h5 className='sign-up-text'>Log in</h5>
