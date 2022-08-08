@@ -29,13 +29,22 @@ function Reviews({ reviews }) {
 
   return (
     <div className='review-page-div'>
-      <h2 className='reviews-title'>Reviews</h2>
+      <h2 className='reviews-title'>Recommended Reviews</h2>
       <div>
         {reviews.map((review) => {
           return <div className='each-review' key={review.id}>
             {/* <div>{review.user_id}</div> */}
             <div className='review-content'>
-              <div>Reviewed By: {review.user.first_name} {review.user.last_name}</div>
+              <div className='review-username-div'>
+                <div className='prof-pic'>
+                  <div className='prof-pic-inner'>
+                    {review.user.first_name.charAt(0)}{review.user.last_name.charAt(0)}
+                  </div>
+                </div>
+                <div className='username-div'>
+                  {review.user.first_name} {review.user.last_name}
+                </div>
+              </div>
             </div>
             <div className='review-content'>
               <div>{review.content}</div>
