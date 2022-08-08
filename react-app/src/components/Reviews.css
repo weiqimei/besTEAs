@@ -35,6 +35,30 @@
   font-size: 25px;
 }
 
+.prof-pic {
+  border-radius: 50%;
+  border: 1px solid;
+  width: 64px;
+  height: 64px;
+}
+
+.review-username-div {
+  display: flex;
+}
+
+.username-div {
+  margin-left: 15px;
+  margin-top: 20px;
+}
+
+.prof-pic-inner {
+  display: flex;
+  justify-content: center;
+  /* margin: 10px; */
+  font-size: 28px;
+  padding-top: 18px;
+}
+
 .date-reviewed {
   display: flex;
   justify-content: center;
