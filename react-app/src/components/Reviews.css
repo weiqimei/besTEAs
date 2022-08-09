@@ -1,9 +1,14 @@
 .reviews-title {
-  width: 51.5%;
+  /* width: 51.5%; */
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   margin-bottom: 50px;
-  font-size: 40px;
+  font-size: 30px;
+  margin-left: 350px;
+  color: #d32323;
+  /* font-size: 22px; */
+  font-weight: bold;
+  /* margin-bottom: 6px; */
 }
 
 .review-image {
@@ -11,35 +16,48 @@
   background-position: inherit;
   height: 300px;
   width: 300px;
-  border-radius: 10px;
-  margin: 10px;
+  border-radius: 5px;
+  /* margin: 10px; */
   display: flex;
   justify-content: center;
+}
+
+.ellipsis {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 20px;
+}
+
+.ellipsis-icon {
+  width: 20px;
 }
 
 .each-review {
-  width: 50%;
+  width: 603px;
   padding: 4em 1em 0;
-  border-radius: 20px;
+  /* border-radius: 20px; */
   min-height: 9em;
   transition: box-shadow .9s ease;
   word-break: break-all;
-  border: 1px solid rgba(0, 0, 0, .1);
+  border-bottom: 1px solid rgba(0, 0, 0, .1);
   margin-bottom: 10px;
+  margin-left: 140px;
 }
 
 .review-content {
-  display: flex;
-  justify-content: center;
+  /* display: flex;
+  justify-content: center; */
   margin-bottom: 10px;
   font-size: 25px;
 }
 
 .prof-pic {
   border-radius: 50%;
-  border: 1px solid;
+  /* border: 1px solid; */
   width: 64px;
   height: 64px;
+  background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQz5rERSKIXzR2z06gG4WowiKr3rnV6dl6_LERkWyVDb_LAWPWcgwa9Yj3NhpjJqag9x0o&usqp=CAU);
+  background-size: contain;
 }
 
 .review-username-div {
@@ -47,31 +65,53 @@
 }
 
 .username-div {
-  margin-left: 15px;
+  /* margin-left: 15px; */
   margin-top: 20px;
+  color: #0073bb;
+  font-size: 16px;
+  font-weight: bold;
+
 }
 
-.prof-pic-inner {
-  display: flex;
-  justify-content: center;
-  /* margin: 10px; */
-  font-size: 28px;
-  padding-top: 18px;
+.review-text {
+  font-size: 16px;
+  word-break: break-word;
 }
 
 .date-reviewed {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 10px;
-  font-size: 15px;
+  /* margin-left: 10px; */
+}
+
+.review-text-and-image {
+  margin-left: 300px;
+}
+
+.name-and-date {
+  margin-left: 10px;
 }
 
 .edit-delete-review-buttons {
   display: flex;
-  justify-content: center;
+  /* justify-content: center; */
+  justify-content: flex-end;
   margin-bottom: 10px;
+  margin-right: 10px;
 }
 
 .review-page-div {
   margin-bottom: 50px;
+}
+
+.review-content-username {
+  float: left;
+}
+
+.edit-icon {
+  width: 23px;
+  margin: 5px;
+}
+
+.delete-icon {
+  width: 20px;
+  margin: 5px;
 }
