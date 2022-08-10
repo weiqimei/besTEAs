@@ -27,4 +27,7 @@ reset database on heroku
 
 heroku login
 
-heroku run -a icebeartodo flask seed undo heroku run -a icebeartodo flask db downgrade heroku run -a icebeartodo flask db upgrade heroku run -a icebeartodo flask seed all
+heroku run -a besteas flask seed undo 
+heroku run -a besteas flask db downgrade 
+heroku run -a besteas flask db upgrade 
+heroku run -a besteas flask seed all
