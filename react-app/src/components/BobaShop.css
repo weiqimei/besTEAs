@@ -65,6 +65,7 @@
   width: 100%;
 }
 
+
 .bottom-right {
   width: 500px;
   border: 1px solid rgba(0, 0, 0, .1);
@@ -73,9 +74,9 @@
   font-size: 15px;
   position: absolute;
   /* left: 1000px; */
-  left: 60%;
+  left: 62%;
   /* bottom: 2%; */
-  top: 810px;
+  top: 763px;
 }
 
 .address {

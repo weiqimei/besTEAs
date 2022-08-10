@@ -30,19 +30,20 @@ def seed_bobashops():
     n7 = BobaShop(
         user_id=3, name="N7", image="https://s3-media0.fl.yelpcdn.com/bphoto/3rvbcum4ddtBuIk6yIWdSg/o.jpg", address="3005 Silver Creek Rd Ste 184", city="San Jose", state="CA", zipcode="95121", phone="(669) 234-4964", hours="12:00 PM - 10:00 PM")
 
-    db.session.add(bobaGuys)
-    db.session.add(tastea)
-    db.session.add(sunright)
-    db.session.add(happyLemon)
-    db.session.add(bobaBliss)
-    db.session.add(tpTea)
-    db.session.add(boberTea)
-    db.session.add(roseTeaLounge)
-    db.session.add(pekoe)
-    db.session.add(tisane)
-    db.session.add(teaspoon)
-    db.session.add(iTea)
-    db.session.add(sharetea)
+    db.session.add(bobaGuys) # 1
+    db.session.add(sunright) # 2
+    db.session.add(tastea) # 3
+    db.session.add(happyLemon) # 4
+    db.session.add(bobaBliss)  # 5
+    db.session.add(tpTea) # 6
+    db.session.add(boberTea) # 7
+    db.session.add(roseTeaLounge) # 8
+    db.session.add(pekoe) # 9
+    db.session.add(tisane) # 10 
+    db.session.add(teaspoon) # 11
+    db.session.add(iTea) # 12
+    db.session.add(sharetea) # 13
+    db.session.add(n7) # 14
 
     db.session.commit()
 
