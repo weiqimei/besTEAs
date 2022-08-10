@@ -58,7 +58,8 @@ const CreateReviewForm = ({ bobaShopId }) => {
     };
     let review = await dispatch(addReview(bobaShopId, newReview, user_id));
     if (review) {
-      history.push(`/bobaShops/${bobaShopId}`);
+      // history.push(/bobaShops/${bobaShopId});
+      dispatch(getAllReviews(bobaShopId));
       reset();
     }
   }
@@ -67,39 +68,39 @@ const CreateReviewForm = ({ bobaShopId }) => {
     <>
       <h2 className='add-review-title'>Add a Review</h2>
       <div className=''>
-      <form onSubmit={handleSubmit}>
-        <div>
-          {errors.length > 0 && errors.map((err, i) => (
-            <li className='errors' key={i}>{err}</li>
-          ))}
-        </div>
-        <br />
-        <div>
-          <input className='input-field'
-            type='text'
-            placeholder='Review goes here (e.g. I love this boba shop!!)'
-            value={content}
-            onChange={updateContent}
-          />
-        </div>
-        <br />
-        <div>
+        <form onSubmit={handleSubmit}>
+          <div>
+            {errors.length > 0 && errors.map((err, i) => (
+              <li className='errors' key={i}>{err}</li>
+            ))}
+          </div>
+          <br />
+          <div>
             <input className='input-field'
-            type='text'
-            placeholder='Provide an image URL to show off the boba you ordered!'
-            value={picture}
-            onChange={updatePicture}
-          />
-        </div>
-        <br />
-        {/* <input
+              type='text'
+              placeholder='Review goes here (e.g. I love this boba shop!!)'
+              value={content}
+              onChange={updateContent}
+            />
+          </div>
+          <br />
+          <div>
+            <input className='input-field'
+              type='text'
+              placeholder='Provide an image URL to show off the boba you ordered!'
+              value={picture}
+              onChange={updatePicture}
+            />
+          </div>
+          <br />
+          {/* <input
           type='text'
           placeholder='date'
           value={date}
           onChange={updateDate}
         /> */}
           <button className='submit-button' type="submit" disabled={!!errors.length}>Submit Review</button>
-      </form>
+        </form>
       </div>
     </>
   )
