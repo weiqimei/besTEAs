@@ -33,7 +33,7 @@
 }
 
 .each-review {
-  width: 603px;
+  width: 55%;
   padding: 4em 1em 0;
   /* border-radius: 20px; */
   min-height: 9em;
@@ -41,7 +41,7 @@
   word-break: break-all;
   border-bottom: 1px solid rgba(0, 0, 0, .1);
   margin-bottom: 10px;
-  margin-left: 140px;
+  margin-left: -20px;
 }
 
 .review-content {
@@ -83,7 +83,7 @@
 }
 
 .review-text-and-image {
-  margin-left: 300px;
+  margin-left: 450px;
 }
 
 .name-and-date {
