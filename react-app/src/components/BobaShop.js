@@ -139,9 +139,8 @@ function BobaShop() {
       </div> :
         <>
           <div className='error-message'>
-            Loading ...
+            Error: Boba Shop Not Found
           </div>
-          <br/>
           <div className='error-button-div'>
             <NavLink to={`/bobaShops`}>
               <button className='go-back-to-boba-shops'>Go Back to Boba Shops</button>
