@@ -3,11 +3,13 @@ import thunk from 'redux-thunk';
 import session from './session';
 import bobaShopReducer from './bobashops';
 import reviewReducer from './reviews';
+import searchReducer from './search';
 
 const rootReducer = combineReducers({
   session,
   bobaShopReducer,
-  reviewReducer
+  reviewReducer,
+  searchReducer
 });
 
 

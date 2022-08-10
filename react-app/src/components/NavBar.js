@@ -2,6 +2,7 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import LogoutButton from './auth/LogoutButton';
 import { useSelector } from 'react-redux';
+import SearchBar from './SearchBar';
 import './NavBar.css';
 
 const NavBar = () => {
@@ -45,6 +46,9 @@ const NavBar = () => {
               <NavLink to='/bobaShops' exact={true} activeClassName='active'>
                 Browse Boba Shops
               </NavLink>
+            </div>
+            <div className='each-nav-element'>
+              <SearchBar />
             </div>
             <div className='each-nav-element'>
               <NavLink to='/bobaShops/new'>
