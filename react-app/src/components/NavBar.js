@@ -47,7 +47,7 @@ const NavBar = () => {
                 Browse Boba Shops
               </NavLink>
             </div>
-            <div className='each-nav-element'>
+            <div>
               <SearchBar />
             </div>
             <div className='each-nav-element'>
