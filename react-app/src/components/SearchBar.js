@@ -45,17 +45,18 @@ function SearchBar() {
   }, [])
 
   return (
-    <>
-      <div className='search-bar-container'>
-        <input
+    <div className='searchbar'>
+      <div className='search-bar-div'>
+        <input 
           type='text'
+          className='searchbar-box'
           name='search-bar'
           placeholder='Search'
           onChange={e => setSearch(e.target.value)}
           onBlur={() => setSearchResults('')}
           value={search}
         />
-        <div className='search-bar-search-results'>
+        <div className='searchbar-drop'>
           <div>
             {searchResults?.length > 0 && searchResults?.map(result => (
               <>
@@ -67,7 +68,7 @@ function SearchBar() {
                     setSearchResults([])
                     history.push(`/bobaShops/${result.bobaShopId}`)
                   }}>
-                  <p>
+                  <p className='dropdown-result'>
                     {result.name}
                   </p>
                 </div>
@@ -76,7 +77,7 @@ function SearchBar() {
           </div>
         </div>
       </div>
-    </>
+    </div>
   )
 }
 
