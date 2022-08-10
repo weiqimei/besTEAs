@@ -44,7 +44,7 @@ class Review(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False)
     boba_shop_id = db.Column(db.Integer, db.ForeignKey("boba_shops.id"), nullable=False)
-    content = db.Column(db.String(255), nullable=False)
+    content = db.Column(db.String, nullable=False)
     picture = db.Column(db.Text, nullable=False)
     date = db.Column(db.TIMESTAMP(timezone=False), nullable=False)
 
