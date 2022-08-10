@@ -22,3 +22,12 @@ reset database
 - flask db upgrade (creates tables in db)
 - flask seed all (seeds data)
 
+
+reset database on heroku
+
+heroku login
+
+heroku run -a besteas flask seed undo 
+heroku run -a besteas flask db downgrade 
+heroku run -a besteas flask db upgrade 
+heroku run -a besteas flask seed all
