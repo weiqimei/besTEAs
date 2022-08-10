@@ -53,7 +53,8 @@ function SearchBar() {
           name='search-bar'
           placeholder='Search'
           onChange={e => setSearch(e.target.value)}
-          onBlur={() => setSearchResults('')}
+          // onBlur={() => setSearchResults('')}
+          onBlur={() => setSearch('')} // empties search field when you click out of it
           value={search}
         />
         <div className='searchbar-drop'>
